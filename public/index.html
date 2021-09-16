@@ -37,20 +37,24 @@
             <input type="button" id="spirit" name="cat" value="spirit" class="btn">
         </div>
         <div class="inputField" id="newfuelbtn">
+            <!--Content get added via JS-->
+        </div>
+        <div class="inputField" id="resultIP">
+            <label id="result" ></label>
         </div>
         <div class="inputField">
-            <input type="button" value="Custom" id="newContentBtn" class="btn">
-            <input type="button" value="calc" id="clacBtn" class="btn">
+            <input type="button" value="Custom" id="newContentBtn" class="btn" name="onewaybtn">
+            <input type="button" value="calc" id="clacBtn" class="btn" name="onewaybtn">
         </div>
         <div id="newContent" hidden>
             <div class="inputField">
-                <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn">
+                <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"  name="onewaybtn">
             </div>
             <div class="inputField" id="inputCombinedNewCat">
-                <input type="button" id="beer" value="Beer" class="btn">
-                <input type="button" id="wine" value="wine" class="btn">
-                <input type="button" id="cocktail" value="cocktail" class="btn">
-                <input type="button" id="spirit" value="spirit" class="btn">
+                <input type="button" id="newbeer" name="cat" value="Beer" class="btn">
+                <input type="button" id="newwine" name="cat" value="wine" class="btn">
+                <input type="button" id="newcocktail" name="cat" value="cocktail" class="btn">
+                <input type="button" id="newspirit" name="cat" value="spirit" class="btn">
             </div>
             <div class="inputField">
                 <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
@@ -59,13 +63,13 @@
                     max="99"></input>
             </div>
             <div class="inputField">
-                <input type="button" value="Submit" id="sendReqBtn" class="btn">
+                <input type="button" value="Submit" id="sendReqBtn" class="btn" name="onewaybtn">
             </div>
         </div>
     </div>
     </div>
-    <script src="/calc.js"></script>
     <script src="/buttonlogic.js"></script>
+    <script src="/calc.js"></script>
     <script src="/pagehandler.js"></script>
 </body>
 

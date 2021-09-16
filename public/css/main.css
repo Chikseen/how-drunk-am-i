@@ -104,8 +104,12 @@ html, body {
 .btn.isChecked {
     background-color: rgb(93, 155, 85);
 }
+.btn:hover {
+    background-color: rgb(163, 153, 64);
+}
 
 #newfuelbtn {
+    
     flex-wrap: wrap;
     padding: 10px;
     row-gap: 20px;
@@ -141,4 +145,14 @@ html, body {
     box-shadow: 2.5px 2.5px 15px 2.5px rgb(124, 114, 98);
 
     text-align: center;
+}
+
+#resultIP {
+    display: none;
+}
+#result {
+    width: 100%;
+    height: inherit;
+    text-align: center;
+    justify-content: center;
 }
