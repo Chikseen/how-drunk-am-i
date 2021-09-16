@@ -72,6 +72,7 @@ function loadcontent(data) {
         btn.setAttribute("name", "newContent");
         btn.setAttribute("id", item.fuel);
         
+        
         btn.textContent = item.fuel
         console.log("add btn: " + item.fuel);
         document.getElementById("newfuelbtn").append(btn);
