@@ -1,16 +1,14 @@
 
 let fueldata;
-let cat;
+let cat = "";
 let sex = "na";
 
-
-
-document.getElementById("sendReqBtn").onclick = async function sendrequest() {
+document.getElementById("sendReqBtn").addEventListener("click", async function sendrequest() {
     console.log("hi")
 
-    const fuel = document.getElementById("newFuel").value;
-    document.getElementById("newFuel").value = "";
-    const mil = document.getElementById("milSlider").value;
+    const fuel = document.getElementById("fuelInput").value;
+    document.getElementById("newMilSlider").value = "";
+    const mil = document.getElementById("newMilSlider").value;
     const occourenc = "";
 
     const data = { fuel, mil, cat, occourenc };
@@ -21,26 +19,15 @@ document.getElementById("sendReqBtn").onclick = async function sendrequest() {
     console.log(resp)
 
     showContentadder();
-}
+});
 
-document.getElementById("clacBtn").onclick = function calc() {
-
-    let age = 18;
-    let weight = 60;
-
-    age = document.getElementById('ageslider').value;
-    weight = document.getElementById('weightslider').value;
-    let mil = document.getElementById('fuel').value;
-
-    console.log("sex: " + sex);
-    console.log("age: " + age);
-    console.log("weight: " + weight);
-    console.log("fuel: ")
-    console.log(mil);
-}
+document.getElementById("newContentBtn").addEventListener("click", function sendrequest() {
+    showContentadder()
+});
 
 function showContentadder() {
     document.getElementById("newContent").classList.toggle("show");
+    document.querySelector(".maincontent").classList.toggle("show");
 }
 
 window.addEventListener('load', () => {
@@ -48,8 +35,9 @@ window.addEventListener('load', () => {
 });
 
 async function getList() {
+    console.log("List Is Loading")
 
-    const response = await fetch("/getList");
+    const response = await fetch("/getList")
     const data = await response.json();
     const list = document.getElementById("fuelDL");
 
@@ -61,6 +49,7 @@ async function getList() {
     fueldata = data;
     //Call Function in buttonlogic.js
     addAction();
+
 }
 
 function loadcontent(data) {
@@ -72,7 +61,7 @@ function loadcontent(data) {
         btn.setAttribute("name", "newContent");
         btn.setAttribute("id", item.fuel);
         
-        
+
         btn.textContent = item.fuel
         console.log("add btn: " + item.fuel);
         document.getElementById("newfuelbtn").append(btn);

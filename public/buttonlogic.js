@@ -1,15 +1,3 @@
-document.getElementById('beer').onclick = function setcat() {
-    cat = "beer";
-};
-document.getElementById('wine').onclick = function setcat() {
-    cat = "wine";
-};
-document.getElementById('cocktail').onclick = function setcat() {
-    cat = "cocktail";
-};
-document.getElementById('spirit').onclick = function setcat() {
-    cat = "spirit"
-};
 
 document.getElementById('gsm').onclick = function setcat() {
     sex = "male";
@@ -27,7 +15,13 @@ function addAction() {
 
         btns[i].addEventListener("click", function test() {
             toggleLogic(btns[i].name, btns[i].id);
+            if (btns[i].name == "cat") {
+                console.log("ich bin eine ccat")
+                cat = btns[i].id;
+                console.log(cat);
+            }
         });
+       
     }
 }
 
@@ -47,6 +41,7 @@ function toggleLogic(btnname, btnid) {
         document.getElementById(btnid).classList.toggle("isChecked");
     }
 }
+
 
 /*
 document.getElementById('gsf').onclick = function setcat() {

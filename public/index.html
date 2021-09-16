@@ -31,40 +31,40 @@
         </div>
 
         <div class="inputField" id="inputCombinedFuel">
-            <input type="button" id="beer" name="getcat" value="Beer" class="btn">
-            <input type="button" id="wine" name="getcat" value="wine" class="btn">
-            <input type="button" id="cocktail" name="getcat" value="cocktail" class="btn">
-            <input type="button" id="spirit" name="getcat" value="spirit" class="btn">
-            <input type="button" id="spkirit" name="getcat" value="spirit" class="btn">
+            <input type="button" id="beer" name="cat" value="Beer" class="btn">
+            <input type="button" id="wine" name="cat" value="wine" class="btn">
+            <input type="button" id="cocktail" name="cat" value="cocktail" class="btn">
+            <input type="button" id="spirit" name="cat" value="spirit" class="btn">
         </div>
         <div class="inputField" id="newfuelbtn">
         </div>
         <div class="inputField">
-            <input type="button" value="Custom" onclick="showContentadder()" class="btn">
+            <input type="button" value="Custom" id="newContentBtn" class="btn">
             <input type="button" value="calc" id="clacBtn" class="btn">
         </div>
-    </div>
-
-    <div id="newContent" hidden>
-        <div class="maincontent">
+        <div id="newContent" hidden>
             <div class="inputField">
-                <input type="text" value="" placeholder="Name your new Fuel" id="fuelbtn" class="btn">
+                <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn">
             </div>
-            <div class="inputField">
+            <div class="inputField" id="inputCombinedNewCat">
                 <input type="button" id="beer" value="Beer" class="btn">
                 <input type="button" id="wine" value="wine" class="btn">
                 <input type="button" id="cocktail" value="cocktail" class="btn">
                 <input type="button" id="spirit" value="spirit" class="btn">
             </div>
+            <div class="inputField">
+                <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
+                    oninput="this.nextElementSibling.value = this.value">
+                <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1"
+                    max="99"></input>
+            </div>
+            <div class="inputField">
+                <input type="button" value="Submit" id="sendReqBtn" class="btn">
+            </div>
         </div>
-        <div class="inputField">
-            <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
-                oninput="this.nextElementSibling.value = this.value">
-            <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1" max="99"></input>
-        </div>
-        <input type="button" value="Submit" id="sendReqBtn">
     </div>
     </div>
+    <script src="/calc.js"></script>
     <script src="/buttonlogic.js"></script>
     <script src="/pagehandler.js"></script>
 </body>
