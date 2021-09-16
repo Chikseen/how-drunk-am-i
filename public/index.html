@@ -58,10 +58,9 @@
             </div>
         </div>
         <div class="inputField">
-            <label for="">%</label>
-            <input type="range" min="1" max="99" value="50" id="milSlider" class="slider"
+            <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
                 oninput="this.nextElementSibling.value = this.value">
-            <output class="output" id="newMilSliderOut">50</output>
+            <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1" max="99"></input>
         </div>
         <input type="button" value="Submit" id="sendReqBtn">
     </div>

@@ -64,8 +64,8 @@ async function getList() {
 }
 
 function loadcontent(data) {
-    for (item of data) {
 
+    for (item of data) {
         let btn = document.createElement('button');
 
         btn.setAttribute("class", "btn");
