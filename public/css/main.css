@@ -1,8 +1,8 @@
 html, body { 
     height: inherit;
-    background: linear-gradient(120deg, rgb(122, 102, 71) 0%, rgb(231, 209, 175) 50%, rgb(124, 114, 98) 100%)
+    background: linear-gradient(120deg, rgb(122, 102, 71) 0%, rgb(231, 209, 175) 50%, rgb(124, 114, 98) 100%);
 }
-#maincontent {
+.maincontent {
     background-color: rgba(182, 171, 157, 0.644);
     position: absolute;
     width: 500px;
@@ -11,6 +11,8 @@ html, body {
     left: calc(50% - 250px);
 
     padding: 20px;
+    margin-bottom: 100px;
+    
 
     display: flex;
     flex-direction:column;
@@ -23,15 +25,36 @@ html, body {
 
 .inputField {
     padding: 20px;
-    height:inherit;
+    height: inherit;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
+    margin: 5px;
+    border: lavenderblush;
+    border-radius: 10px;
+    background-color: rgb(242, 245, 239);
     
 }
+
+.combinedField{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#inputCombinedSlider{
+    flex-direction: column;
+}
+#inputCombinedFuel{
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+
 
 #newContent { 
     display: block;
@@ -44,8 +67,6 @@ html, body {
     backdrop-filter: blur(20px);
     opacity: 0;
     z-index: -5;
-
-    transition: 0.5s ease-out;
 }
 
 #newContent.show{
@@ -54,30 +75,45 @@ html, body {
     z-index: 5;
 }
 
-.buttonsfield {
-    display: flex;
-    flex-direction: row;
-    height: initial;
+.btn {
+    height: 75px;
+    max-width: 100%;
+    min-width: 45%;
 
-    margin-left: 3%;
-    margin-right: 3%;
-}
-
-.buttonalign {
     margin-left: 10px;
     margin-right: 10px;
-
-    width: inherit;
-    height: inherit;
-}
-
-.btn {
-    width: 100px;
-    height: 75px;
 
     border-radius: 10px;
     background-color: ivory;
     box-shadow: 2.5px 2.5px 15px 2.5px rgb(124, 114, 98);
+    text-align: center;
+
+    transition: 0.25s ease-out;
+}
+.btn.isChecked {
+    background-color: rgb(93, 155, 85);
+}
+
+#newfuelbtn {
+    flex-wrap: wrap;
+    padding: 10px;
+    row-gap: 20px;
+}
+
+#infotext {
+    font-size: 0.5rem;
+}
+
+.staticinfo {
+    text-align: center;
+}
+
+.staticinfo {
+    width: 25%;
+}
+
+.slider {
+    width: 75%;
 }
 
 .output {
@@ -85,16 +121,13 @@ html, body {
     justify-content: center;
     align-items: center;
     
-    width: 50px;
     height: 50px;
+    width: 25%;
+    margin: 10px;
 
     border-radius: 10px;
     background-color: ivory;
     box-shadow: 2.5px 2.5px 15px 2.5px rgb(124, 114, 98);
-}
 
-#newfuelbtn {
-    flex-wrap: wrap;
-    padding: 10px;
-    row-gap: 20px;
+    text-align: center;
 }

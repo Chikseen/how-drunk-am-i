@@ -1,30 +1,9 @@
 
 let fueldata;
 let cat;
-let sex;
+let sex = "na";
 
-document.getElementById('beer').onclick = function setcat() {
-    cat = "beer";
-};
-document.getElementById('wine').onclick = function setcat() {
-    cat = "wine";
-};
-document.getElementById('cocktail').onclick = function setcat() {
-    cat = "cocktail";
-};
-document.getElementById('spirit').onclick = function setcat() {
-    cat = "spirit"
-};
 
-document.getElementById('gsm').onclick = function setcat() {
-    sex = "male";
-};
-document.getElementById('gsf').onclick = function setcat() {
-    sex = "female";
-};
-document.getElementById('gsn').onclick = function setcat() {
-    sex = "na";
-};
 
 document.getElementById("sendReqBtn").onclick = async function sendrequest() {
     console.log("hi")
@@ -80,21 +59,22 @@ async function getList() {
     loadcontent(data)
 
     fueldata = data;
+    //Call Function in buttonlogic.js
+    addAction();
 }
 
 function loadcontent(data) {
     for (item of data) {
 
-        let div = document.createElement('div');
         let btn = document.createElement('button');
 
-        div.setAttribute("class", "buttonalign");
         btn.setAttribute("class", "btn");
+        btn.setAttribute("name", "newContent");
+        btn.setAttribute("id", item.fuel);
         
         btn.textContent = item.fuel
         console.log("add btn: " + item.fuel);
-        document.getElementById("newfuelbtn").append(div)
-        div.append(btn)
+        document.getElementById("newfuelbtn").append(btn);
     }
 }
 

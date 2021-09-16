@@ -10,94 +10,63 @@
 </head>
 
 <body>
-    <div id="maincontent">
+    <div class="maincontent">
         <div class="inputField">
-            <div class="buttonsfield">
-                <div class="buttonalign">
-                    <input type="button" id="gsm" name="getsex" value="male" class="btn">
-                </div>
-                <div class="buttonalign">
-                    <input type="button" id="gsf" name="getsex" value="female" class="btn">
-                </div>
-                <div class="buttonalign">
-                    <input type="button" id="gsn" name="getsex" value="na" class="btn">
-                </div>
+            <input type="button" id="gsm" name="getsex" value="male" class="btn">
+            <input type="button" id="gsf" name="getsex" value="female" class="btn">
+        </div>
+
+        <div class="inputField" id="inputCombinedSlider">
+            <div class="combinedField">
+                <input type="range" min="1" max="99" value="18" id="ageslider" class="slider"
+                    oninput="this.nextElementSibling.value = this.value">
+                <input class="output" id="ageSliderOut" type="number" placeholder="Your Age" min="1" max="99"></input>
+            </div>
+            <div class="combinedField">
+                <input type="range" min="1" max="200" value="60" id="weightslider" class="slider"
+                    oninput="this.nextElementSibling.value = this.value">
+                <input class="output" id="weightSliderOut" type="number" placeholder="Your Weigth" min="1"
+                    max="200"></input>
             </div>
         </div>
-        <div class="inputField">
-            <label for="">Age</label>
-            <input type="range" min="1" max="99" value="18" id="ageslider" class="slider"
-                oninput="this.nextElementSibling.value = this.value">
-            <output class="output" id="ageSliderOut">18</output>
-        </div>
-        <div class="inputField">
-            <label for="">Weight</label>
-            <input type="range" min="1" max="350" value="60" id="weightslider" class="slider"
-                oninput="this.nextElementSibling.value = this.value">
-            <output class="output" id="weightSliderOut">60</output>
-        </div>
-        <div class="inputField">
-            <div class="buttonsfield">
-                <div class="buttonalign">
-                    <input type="button" id="beer" value="Beer" class="btn">
-                </div>
-                <div class="buttonalign">
-                    <input type="button" id="wine" value="wine" class="btn">
-                </div>
-                <div class="buttonalign">
-                    <input type="button" id="cocktail" value="cocktail" class="btn">
-                </div>
-                <div class="buttonalign">
-                    <input type="button" id="spirit" value="spirit" class="btn">
-                </div>
-            </div>
+
+        <div class="inputField" id="inputCombinedFuel">
+            <input type="button" id="beer" name="getcat" value="Beer" class="btn">
+            <input type="button" id="wine" name="getcat" value="wine" class="btn">
+            <input type="button" id="cocktail" name="getcat" value="cocktail" class="btn">
+            <input type="button" id="spirit" name="getcat" value="spirit" class="btn">
+            <input type="button" id="spkirit" name="getcat" value="spirit" class="btn">
         </div>
         <div class="inputField" id="newfuelbtn">
-            <div class="buttonalign">
-                <input type="button" id="spirit" value="test" class="btn">
-            </div>
         </div>
         <div class="inputField">
-            <div class="buttonsfield">
-                <input type="button" value="Custom" onclick="showContentadder()">
-                <input type="button" value="calc" id="clacBtn">
-            </div>
+            <input type="button" value="Custom" onclick="showContentadder()" class="btn">
+            <input type="button" value="calc" id="clacBtn" class="btn">
         </div>
     </div>
 
     <div id="newContent" hidden>
-        <div class="inputField">
-            <div id="maincontent">
-                <div class="inputField">
-                    <label for="">Fuel Name</label>
-                    <input type="text" id="newFuel">
-                </div>
-                <div class="inputField">
-                    <div class="buttonsfield">
-                        <div class="buttonalign">
-                            <input type="button" id="beer" value="Beer" class="btn">
-                        </div>
-                        <div class="buttonalign">
-                            <input type="button" id="wine" value="wine" class="btn">
-                        </div>
-                        <div class="buttonalign">
-                            <input type="button" id="cocktail" value="cocktail" class="btn">
-                        </div>
-                        <div class="buttonalign">
-                            <input type="button" id="spirit" value="spirit" class="btn">
-                        </div>
-                    </div>
-                </div>
-                <div class="inputField">
-                    <label for="">%</label>
-                    <input type="range" min="1" max="99" value="50" id="milSlider" class="slider"
-                        oninput="this.nextElementSibling.value = this.value">
-                    <output class="output" id="newMilSliderOut">50</output>
-                </div>
-                <input type="button" value="Submit" id="sendReqBtn">
+        <div class="maincontent">
+            <div class="inputField">
+                <input type="text" value="" placeholder="Name your new Fuel" id="fuelbtn" class="btn">
+            </div>
+            <div class="inputField">
+                <input type="button" id="beer" value="Beer" class="btn">
+                <input type="button" id="wine" value="wine" class="btn">
+                <input type="button" id="cocktail" value="cocktail" class="btn">
+                <input type="button" id="spirit" value="spirit" class="btn">
             </div>
         </div>
+        <div class="inputField">
+            <label for="">%</label>
+            <input type="range" min="1" max="99" value="50" id="milSlider" class="slider"
+                oninput="this.nextElementSibling.value = this.value">
+            <output class="output" id="newMilSliderOut">50</output>
+        </div>
+        <input type="button" value="Submit" id="sendReqBtn">
     </div>
+    </div>
+    <script src="/buttonlogic.js"></script>
     <script src="/pagehandler.js"></script>
 </body>
 
