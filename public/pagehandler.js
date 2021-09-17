@@ -5,22 +5,68 @@ let newcat = "";
 let mil;
 
 document.getElementById("sendReqBtn").addEventListener("click", async function sendrequest() {
-    console.log("hi")
 
     const fuel = document.getElementById("fuelInput").value;
     document.getElementById("fuelInput").value = "";
     const mil = document.getElementById("newMilSliderOut").value;
     const occourenc = "";
 
-    const data = { fuel, mil, newcat, occourenc };
+    ceckCat();
+    ceckMil();
 
-    const response = await fetch("/sendrequest", packMyData(data))
-    const resp = await response.json();
+    if ((ceckFuel(fuel) && ceckCat()) && ceckMil()) {
 
-    console.log(resp)
+        const data = { fuel, mil, newcat, occourenc };
 
-    showContentadder();
+        const response = await fetch("/sendrequest", packMyData(data))
+        const resp = await response.json();
+
+        console.log(resp)
+        showContentadder();
+    }
+    else {
+        
+    }
+    
 });
+
+function ceckFuel(fuel) {
+    if (fuel != "") {
+        return true;
+    }
+    else {
+        console.log("select a fuel name")
+        let el = document.getElementById("inputCombinedNewFuel");
+        resetAnimation(document.getElementById("inputCombinedNewFuel"))
+        el.style.animation = "error 2.5s ease-in-out alternate";
+        return false;
+    }
+
+}
+function ceckCat() {
+    if (newcat != "") {
+        return true;
+    }
+    else {
+        console.log("select a cat")
+        let el = document.getElementById("inputCombinedNewCat");
+        resetAnimation(document.getElementById("inputCombinedNewCat"))
+        el.style.animation = "error 2.5s ease-in-out alternate";
+        return false;
+    }
+}
+function ceckMil() {
+    if (newcat != 50) {
+        return true;
+    }
+    else {
+        console.log("select a mil")
+        let el = document.getElementById("inputCombinedNewMil");
+        resetAnimation(document.getElementById("inputCombinedNewMil"))
+        el.style.animation = "error 2.5s ease-in-out alternate";
+        return false;
+    }
+}
 
 document.getElementById("newContentBtn").addEventListener("click", function sendrequest() {
     showContentadder()
@@ -74,10 +120,8 @@ async function changecontent(cdto) {
         }
     }
 
-    console.log("new content")
-    console.log(newcon)
-
-    let show = [];
+    console.log("new content");
+    console.log(newcon);
 }
 
 function loadcontent(data) {
@@ -92,7 +136,8 @@ function loadcontent(data) {
 
         btn.textContent = item.fuel
         console.log("add btn: " + item.fuel);
-        document.getElementById("newfuelbtn").append(btn);
+        document.getElementById("selectFuelIP").append(btn);
+
     }
 }
 

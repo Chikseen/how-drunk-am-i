@@ -4,7 +4,7 @@ html, body {
 }
 .maincontent {
     background-color: rgba(182, 171, 157, 0.644);
-    position: absolute;
+    position: relative;
     width: 500px;
     height: inherit;
     top: calc(50% - 300px);
@@ -21,6 +21,8 @@ html, body {
 
     border-radius: 10px;
     box-shadow: 2.5px 2.5px 15px 2.5px rgb(124, 114, 98);
+
+    transition: 0.25s ease-out;
 }
 .maincontent.show {
     background-color: dimgray;
@@ -39,7 +41,6 @@ html, body {
     border: lavenderblush;
     border-radius: 10px;
     background-color: rgb(242, 245, 239);
-    
 }
 
 .combinedField{
@@ -156,3 +157,35 @@ html, body {
     text-align: center;
     justify-content: center;
 }
+
+
+@keyframes error {
+    25% {
+        background-color: rgb(158, 67, 82);
+    }
+    50%{
+        background-color: rgb(245, 239, 240);
+    }
+    75%{
+        background-color: rgb(158, 67, 82);
+    }
+    100%{
+        background-color: rgb(245, 239, 240);
+    } 
+}
+
+@media screen and (max-width: 480px) {
+    .maincontent {
+        width: 100%;
+        left: 0px;
+
+        padding: 0px;
+    }
+
+    .btn {
+        min-width: 45%;
+
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+  }
