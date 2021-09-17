@@ -24,6 +24,9 @@ function addAction() {
                 setDrink(btns[i].id)
                 setmil(btns[i].id);
             }
+            else if (btns[i].name == "newCat") {
+                setNewCat(btns[i].id)
+            }
         });  
     }
 }
