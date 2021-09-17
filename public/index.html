@@ -11,11 +11,13 @@
 
 <body>
     <div class="maincontent">
+        <label>Sex</label>
         <div class="inputField" id="sexIP">
             <input type="button" id="gsm" name="getsex" value="male" class="btn">
             <input type="button" id="gsf" name="getsex" value="female" class="btn">
         </div>
 
+        <label>Personal Data</label>
         <div class="inputField" id="inputCombinedSlider">
             <div class="combinedField">
                 <input type="range" min="1" max="99" value="18" id="ageslider" class="slider"
@@ -30,32 +32,59 @@
             </div>
         </div>
 
+        <label>Cat</label>
         <div class="inputField" id="inputCombinedFuel">
             <input type="button" id="beer" name="cat" value="Beer" class="btn">
             <input type="button" id="wine" name="cat" value="wine" class="btn">
             <input type="button" id="cocktail" name="cat" value="cocktail" class="btn">
             <input type="button" id="spirit" name="cat" value="spirit" class="btn">
         </div>
+
+        <label>Volume</label>
+        <div class="inputField" id="inputCombinedVolume">
+            <input type="button" id="1oz" name="volume" value="1oz" class="btn">
+            <input type="button" id="100ml" name="volume" value="100ml" class="btn">
+            <input type="button" id="5oz" name="volume" value="5oz" class="btn">
+            <input type="button" id="250ml" name="volume" value="250ml" class="btn">
+            <input type="button" id="10oz" name="volume" value="10oz" class="btn">
+            <input type="button" id="500ml" name="volume" value="500ml" class="btn">
+        </div>
+
+        <label>Drink</label>
         <div class="inputField" id="selectFuelIP">
+            <input type="button" value="Custom" id="customContentButton" class="btn" name="onewaybtn">
             <!--Content get added via JS-->
         </div>
+
+        <label>Added Fuel</label>
+        <div class="inputField" id="addedFuelIP">
+            <!--Content get added via JS-->
+        </div>
+
+        <label>Result</label>
         <div class="inputField" id="resultIP">
             <label id="result" ></label>
         </div>
         <div class="inputField">
-            <input type="button" value="Custom" id="newContentBtn" class="btn" name="onewaybtn">
             <input type="button" value="calc" id="clacBtn" class="btn" name="onewaybtn">
+            <input type="button" value="add" id="addBtn" class="btn" name="onewaybtn">
         </div>
         <div id="newContent" hidden>
+
+            <label>Name your new Fuel</label>
             <div class="inputField"  id="inputCombinedNewFuel">
                 <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"  name="onewaybtn">
             </div>
+
+            <label>What is it</label>
             <div class="inputField" id="inputCombinedNewCat">
                 <input type="button" id="newbeer" name="cat" value="Beer" class="btn">
                 <input type="button" id="newwine" name="cat" value="wine" class="btn">
                 <input type="button" id="newcocktail" name="cat" value="cocktail" class="btn">
                 <input type="button" id="newspirit" name="cat" value="spirit" class="btn">
             </div>
+
+            <label>Set vol%</label>
             <div class="inputField" id="inputCombinedNewMil">
                 <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
@@ -63,7 +92,7 @@
                     max="99"></input>
             </div>
             <div class="inputField">
-                <input type="button" value="Submit" id="sendReqBtn" class="btn" name="onewaybtn">
+                <input type="button" value="Submit" id="sendRequestButton" class="btn" name="onewaybtn">
             </div>
         </div>
     </div>

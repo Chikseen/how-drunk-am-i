@@ -1,13 +1,15 @@
 
-let cat = "";
 let newcat = "";
 
-let mil;
+function setNewCat(id) {
+    newcat = id;
+}
 
-document.getElementById("sendReqBtn").addEventListener("click", async function sendrequest() {
+document.getElementById("sendRequestButton").addEventListener("click", async function sendrequest() {
 
     const fuel = document.getElementById("fuelInput").value;
-    document.getElementById("fuelInput").value = "";
+    
+
     const mil = document.getElementById("newMilSliderOut").value;
     const occourenc = "";
 
@@ -15,6 +17,8 @@ document.getElementById("sendReqBtn").addEventListener("click", async function s
     ceckMil();
 
     if ((ceckFuel(fuel) && ceckCat()) && ceckMil()) {
+
+        document.getElementById("fuelInput").value = "";
 
         const data = { fuel, mil, newcat, occourenc };
 
@@ -25,9 +29,9 @@ document.getElementById("sendReqBtn").addEventListener("click", async function s
         showContentadder();
     }
     else {
-        
+
     }
-    
+
 });
 
 function ceckFuel(fuel) {
@@ -35,9 +39,8 @@ function ceckFuel(fuel) {
         return true;
     }
     else {
-        console.log("select a fuel name")
         let el = document.getElementById("inputCombinedNewFuel");
-        resetAnimation(document.getElementById("inputCombinedNewFuel"))
+        resetAnimation(el)
         el.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -48,9 +51,8 @@ function ceckCat() {
         return true;
     }
     else {
-        console.log("select a cat")
         let el = document.getElementById("inputCombinedNewCat");
-        resetAnimation(document.getElementById("inputCombinedNewCat"))
+        resetAnimation(el)
         el.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -68,13 +70,14 @@ function ceckMil() {
     }
 }
 
-document.getElementById("newContentBtn").addEventListener("click", function sendrequest() {
+
+
+document.getElementById("customContentButton").addEventListener("click", function sendrequest() {
     showContentadder()
 });
 
 function showContentadder() {
     document.getElementById("newContent").classList.toggle("show");
-    document.querySelector(".maincontent").classList.toggle("show");
 }
 
 window.addEventListener('load', () => {
@@ -82,81 +85,64 @@ window.addEventListener('load', () => {
 });
 
 async function getList() {
-    console.log("List Is Loading")
 
-    const response = await fetch("/getList")
-    const data = await response.json();
-    const list = document.getElementById("fuelDL");
-
-    console.log("Fetched Data")
-    console.log(data)
+    const data = await fetchData()
 
     loadcontent(data)
-    fueldata = data;
-    //Call Function in buttonlogic.js
     addAction();
 }
 
 async function changecontent(cdto) {
 
-    const response = await fetch("/getList")
-    const data = await response.json();
+    const data = await fetchData()
 
+    const contentManager = document.getElementsByName("newContent");
 
-    console.log("Change to: " + cdto)
-    console.log(cdto.length)
-    const newcon = document.getElementsByName("newContent");
-    console.log(newcon)
-
-    for (let i = 0; i < newcon.length; i++) {
-        newcon[i].style.display = 'none';
+    for (let i = 0; i < contentManager.length; i++) {
+        contentManager[i].style.display = 'none';
     }
 
-    for (item of data) {
-        console.log(item.newcat + " - " + ("new" + cdto))
-        if (item.newcat == ("new" + cdto)) {
-            console.log("is gleich anzeigen")
-            document.getElementById(item.fuel).style.display = "block";
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].newcat == ("new" + cdto)) {
+            document.getElementById(data[i].fuel).style.display = "block";
         }
     }
-
-    console.log("new content");
-    console.log(newcon);
 }
 
 function loadcontent(data) {
 
-    for (item of data) {
+    for (let i = 0; i < data.length; i++) {
         let btn = document.createElement('button');
 
         btn.setAttribute("class", "btn");
         btn.setAttribute("name", "newContent");
-        btn.setAttribute("id", item.fuel);
+        btn.setAttribute("id", data[i].fuel);
 
-
-        btn.textContent = item.fuel
-        console.log("add btn: " + item.fuel);
+        btn.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
         document.getElementById("selectFuelIP").append(btn);
-
     }
 }
 
 async function setmil(cdto) {
 
-    console.log("setmil is called")
-
-    const response = await fetch("/getList")
-    const data = await response.json();
-
+    const data = await fetchData()
 
     for (item of data) {
-        console.log(item.fuel + " - " + cdto)
         if (item.fuel == cdto) {
-
-            mil = item.mil
-            console.log("mil is now" + mil)
+            setMil(item.mil);
         }
     }
+}
+
+let callData;
+async function fetchData() {
+
+    if (callData == undefined) {
+        const response = await fetch("/getList")
+        const data = await response.json();
+        callData = data
+    }
+    return callData;
 }
 
 function packMyData(data) {
