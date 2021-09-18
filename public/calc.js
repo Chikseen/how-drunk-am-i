@@ -191,7 +191,6 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
         vip.style.animation = "error 2.5s ease-in-out alternate";
     }
     checkFuel();
-    checkAdded();
 
     if (checkFuel() && checkVolume()) {
 

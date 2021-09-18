@@ -3,12 +3,11 @@ function addAction() {
     const btns = document.getElementsByClassName("btn")
 
     for (let i = 0; i < btns.length; i++) {
-
         btns[i].addEventListener("click", function test() {
             toggleLogic(btns[i].name, btns[i].id);
 
             if (btns[i].name == "cat") {
-                setNewCat(btns[i].id) 
+                setNewCat(btns[i].id)
                 changecontent(btns[i].id);
             }
             else if (btns[i].name == "onewaybtn") {
@@ -27,7 +26,7 @@ function addAction() {
             else if (btns[i].name == "newCat") {
                 setNewCat(btns[i].id)
             }
-        });  
+        });
     }
 }
 

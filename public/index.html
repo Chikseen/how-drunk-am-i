@@ -98,13 +98,17 @@
 
             <label>Set vol%</label>
             <div class="inputField" id="inputCombinedNewMil">
-                <input type="range" min="1" max="99" value="50" id="newMilSlider" class="slider"
+                <input type="range" min="0" max="99" value="0" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
                 <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1"
                     max="99"></input>
             </div>
             <div class="inputField">
                 <input type="button" value="Submit" id="sendRequestButton" class="btn" name="onewaybtn">
+                <input type="button" value="Edit Submited Data" id="clearDataButton" class="btn" name="onewaybtn">
+            </div>
+            <div class="inputField" id="editSubmitedIP">
+                 <!--Content get added via JS-->
             </div>
         </div>
     </div>

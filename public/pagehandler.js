@@ -8,25 +8,35 @@ function setNewCat(id) {
 document.getElementById("sendRequestButton").addEventListener("click", async function sendrequest() {
 
     const fuel = document.getElementById("fuelInput").value;
-    
 
-    const mil = document.getElementById("newMilSliderOut").value;
+
+    const mil = document.getElementById("newMilSlider").value;
     const occourenc = "";
 
-    ceckCat();
-    ceckMil();
+    console.log("mil is" + mil)
 
-    if ((ceckFuel(fuel) && ceckCat()) && ceckMil()) {
+    ceckCat();
+    ceckMil(mil);
+
+    if ((ceckFuel(fuel) && ceckCat()) && ceckMil(mil)) {
 
         document.getElementById("fuelInput").value = "";
 
         const data = { fuel, mil, newcat, occourenc };
 
-        const response = await fetch("/sendrequest", packMyData(data))
-        const resp = await response.json();
+        newLocalItem(data)
+        let tryCount = 1;
 
-        console.log(resp)
+
+        //     const response = await fetch("/sendrequest", packMyData(data))
+        //     const resp = await response.json();
+
+        webStorageHander(data);
+
+
+        //     console.log(resp)
         showContentadder();
+        location.reload();
     }
     else {
 
@@ -57,8 +67,8 @@ function ceckCat() {
         return false;
     }
 }
-function ceckMil() {
-    if (newcat != 50) {
+function ceckMil(mil) {
+    if (mil != 0) {
         return true;
     }
     else {
@@ -76,11 +86,16 @@ document.getElementById("customContentButton").addEventListener("click", functio
     showContentadder()
 });
 
+
+
+
+
 function showContentadder() {
     document.getElementById("newContent").classList.toggle("show");
 }
 
 window.addEventListener('load', () => {
+    webStorageHander();
     getList();
 });
 
@@ -96,6 +111,13 @@ async function changecontent(cdto) {
 
     const data = await fetchData()
 
+    let tryCount = 1;
+    while (localStorage.getItem(('ownDrinkID' + tryCount))) {
+        data.push(JSON.parse(localStorage.getItem(('ownDrinkID' + tryCount))));
+        tryCount++;
+    }
+    tryCount = 1
+
     const contentManager = document.getElementsByName("newContent");
 
     for (let i = 0; i < contentManager.length; i++) {
@@ -110,6 +132,7 @@ async function changecontent(cdto) {
 }
 
 function loadcontent(data) {
+
 
     for (let i = 0; i < data.length; i++) {
         let btn = document.createElement('button');
@@ -133,6 +156,95 @@ async function setmil(cdto) {
         }
     }
 }
+
+function webStorageHander() {
+
+    let tryCount = 1
+    let data = [];
+    while (localStorage.getItem(('ownDrinkID' + tryCount))) {
+        data.push(JSON.parse(localStorage.getItem(('ownDrinkID' + tryCount))));
+        tryCount++;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+        data[i].mil = parseFloat(data[i].mil);
+    }
+
+    tryCount = 1;
+
+    loadcontent(data);
+}
+
+function newLocalItem(data) {
+    let tryCount = 1;
+    while (localStorage.getItem(('ownDrinkID' + tryCount))) {
+        tryCount++;
+    }
+    localStorage.setItem(("ownDrinkID" + tryCount), JSON.stringify(data))
+}
+
+
+let editable = true;
+document.getElementById("clearDataButton").addEventListener("click", function showSubmitedData() {
+    let tryCount = 1;
+    let data = [];
+
+    if (editable) {
+
+        while (localStorage.getItem(('ownDrinkID' + tryCount))) {
+            data.push(JSON.parse(localStorage.getItem(('ownDrinkID' + tryCount))));
+            tryCount++;
+        }
+        tryCount = 1;
+
+        for (let i = 0; i < data.length; i++) {
+            let btn = document.createElement('button');
+
+            btn.setAttribute("class", "btn");
+            btn.setAttribute("name", "submited");
+            btn.setAttribute("id", ("sub" + data[i].fuel));
+
+            btn.textContent = (data[i].fuel);
+            document.getElementById("editSubmitedIP").append(btn);
+            btn.addEventListener("click", function removeme() {
+                btn.remove();
+                localStorage.removeItem(('ownDrinkID' + (i + 1)));
+            });
+            let tryCount = 1;
+        }
+
+        editable = false;
+    }
+    else {
+        let rembtn = document.getElementsByName("submited");
+        for (let i = 0; i < rembtn.length; i++) {
+            rembtn[i].remove();
+        }
+        editable = true;
+    }
+});
+
+
+/*
+
+ btn.addEventListener("click", function removeme() {
+            btn.remove();
+            isAdded--;
+
+            finalGrammOfAlc = finalGrammOfAlc - precentOfThis;
+            console.log("finalGrammOfAlc is");
+            console.log(precentOfThis);
+            console.log(finalGrammOfAlc);
+        });
+
+document.getElementById("clearDataButton").addEventListener("click", function clearLocalStorage() {
+    localStorage.clear();
+    location.reload();
+});
+
+*/
+
+
 
 let callData;
 async function fetchData() {
