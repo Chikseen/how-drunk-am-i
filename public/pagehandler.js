@@ -84,6 +84,7 @@ function ceckMil(mil) {
 
 document.getElementById("customContentButton").addEventListener("click", function sendrequest() {
     showContentadder()
+    setMIlFeedback();
 });
 
 
@@ -105,6 +106,27 @@ async function getList() {
 
     loadcontent(data)
     addAction();
+}
+
+function setMIlFeedback() {
+    console.log("change mil feedback");
+    const serverbtn = document.getElementsByName("newContent");
+    //let userbtn = document.getElementsByName("submited")
+
+    console.log(serverbtn);
+    console.log(serverbtn.length);
+
+    for (let i = 0; i < serverbtn.length; i++) {
+        console.log("change for<: " + serverbtn[i]) 
+        serverbtn[i].classList.toggle("milFeedback")
+
+        const back = document.createElement("div")
+        back.setAttribute("class", "milIndicator");
+
+        console.log("servbtn id: " + serverbtn[i].id)
+        document.getElementById(serverbtn[i].id).append(back);
+
+    }
 }
 
 async function changecontent(cdto) {

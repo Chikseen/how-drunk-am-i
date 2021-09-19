@@ -98,6 +98,18 @@ html, body {
 
     transition: 0.25s ease-out;
 }
+
+.btn.milFeedbac {
+    content: "eee";
+    background-color:aquamarine;
+}
+
+.milIndicator {
+ height: 100%;
+ width: 50%;
+ background-color: blueviolet;
+}
+
 .btn.isChecked {
     background-color: rgb(93, 155, 85);
 }
