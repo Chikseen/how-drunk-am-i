@@ -1,19 +1,19 @@
 
 
-let age;
-let weight;
-let sex
-let drink;
-let finalweight;
-let finalage;
-let currentPercentOfDrink;
+let age = 0;
+let weight = 0;
+let sex;
+let drink = "";
+let finalweight = 0;
+let finalage = 0;
+let currentPercentOfDrink = 0;
 let finalGrammOfAlc = 0;
-let result;
-let volume;
-let currentVolume;
-let reduction;
+let result = 0;
+let volume = 0;
+let currentVolume = 0;
+let reduction = 0;
 let isAdded = 0;
-let timePassed;
+let timePassed = 0;
 
 function setSex(id) {
     sex = id;
@@ -25,15 +25,16 @@ function setMil(id) {
     currentPercentOfDrink = parseInt(id);
 }
 function setVolume(id) {
+    document.getElementById('customVolumeSliderOut').style.background = "rgb(255, 255, 240)";
     volume = id;
 }
 
 
 document.getElementById("clacBtn").addEventListener("click", function calcResult() {
 
-    age = document.getElementById('ageslider').value;
-    weight = document.getElementById('weightslider').value;
-    timePassed = document.getElementById('timeSlider').value;
+    age = parseFloat(document.getElementById('ageslider').value);
+    weight = parseFloat(document.getElementById('weightslider').value);
+    timePassed = parseFloat(document.getElementById('timeSlider').value);
 
 
     finalweight = parseInt(weight);
@@ -59,13 +60,22 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
         console.log("isAdded: " + isAdded)
 
         result = ((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed));
+        console.log("result: " + result)
 
         if (result <= 0) {
             result = 0;
+            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
         }
+        else {
+            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
+            while (parseFloat((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed)) > 0) {
+                timePassed = (timePassed + 0.1);
 
+                console.log("new passed: " + timePassed)
+            }
+            document.getElementById("resultinfo").textContent = "You reach zero after " + timePassed.toFixed(1) + " hours";
+        }
         document.getElementById("resultIP").style.display = "flex"
-        document.getElementById("result").textContent = result;
     }
 });
 
@@ -95,9 +105,13 @@ function checkSex() {
 let isChanged = false
 document.getElementById('customVolumeSlider').addEventListener("change", function getVolume() {
 
-    console.log("iam callde")
     volume = "";
     currentVolume = document.getElementById('customVolumeSlider').value;
+
+    document.getElementById('customVolumeSliderOut').style.background = "rgb(93, 155, 85)";
+
+    toggleLogic("volume", "");
+
     isChanged = true;
 });
 function checkVolume() {
@@ -149,7 +163,7 @@ function checkVolume() {
 
 function checkFuel() {
 
-    if (currentPercentOfDrink > 0) {
+    if (drink != "") {
         return true;
     }
     else {
@@ -190,6 +204,8 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
         resetAnimation(vip)
         vip.style.animation = "error 2.5s ease-in-out alternate";
     }
+
+    console.log("current drind " + drink)
     checkFuel();
 
     if (checkFuel() && checkVolume()) {

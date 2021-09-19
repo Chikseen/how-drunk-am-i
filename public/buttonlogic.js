@@ -34,7 +34,6 @@ function toggleLogic(btnname, btnid) {
 
     if (btnname != "") {
         const rem = document.getElementsByName(btnname);
-
         for (let i = 0; i < rem.length; i++) {
             rem[i].classList.toggle("isChecked", false);
         }
@@ -42,5 +41,8 @@ function toggleLogic(btnname, btnid) {
 
     if (btnid != "") {
         document.getElementById(btnid).classList.toggle("isChecked");
+    }
+    if (btnid == "volume") {
+        document.getElementById(btnid).classList.toggle("isCheckedVolume");
     }
 }

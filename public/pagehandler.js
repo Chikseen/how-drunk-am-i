@@ -84,7 +84,6 @@ function ceckMil(mil) {
 
 document.getElementById("customContentButton").addEventListener("click", function sendrequest() {
     showContentadder()
-    setMIlFeedback();
 });
 
 
@@ -106,27 +105,6 @@ async function getList() {
 
     loadcontent(data)
     addAction();
-}
-
-function setMIlFeedback() {
-    console.log("change mil feedback");
-    const serverbtn = document.getElementsByName("newContent");
-    //let userbtn = document.getElementsByName("submited")
-
-    console.log(serverbtn);
-    console.log(serverbtn.length);
-
-    for (let i = 0; i < serverbtn.length; i++) {
-        console.log("change for<: " + serverbtn[i]) 
-        serverbtn[i].classList.toggle("milFeedback")
-
-        const back = document.createElement("div")
-        back.setAttribute("class", "milIndicator");
-
-        console.log("servbtn id: " + serverbtn[i].id)
-        document.getElementById(serverbtn[i].id).append(back);
-
-    }
 }
 
 async function changecontent(cdto) {
@@ -165,7 +143,13 @@ function loadcontent(data) {
 
         btn.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
         document.getElementById("selectFuelIP").append(btn);
+
+        setMIlFeedback(btn, data[i].mil.toFixed(1))
     }
+}
+
+function setMIlFeedback(btn, mil) {
+    btn.style.backgroundImage = " linear-gradient(90deg, rgba(90, 77, 51, 0.507) " + (mil - 2) + "%, rgba(255, 255, 240, 1) " + (mil + 2) + "%)";
 }
 
 async function setmil(cdto) {
@@ -247,24 +231,14 @@ document.getElementById("clearDataButton").addEventListener("click", function sh
 });
 
 
-/*
+document.getElementById("infobtn").addEventListener("click", function showhelp() {
 
- btn.addEventListener("click", function removeme() {
-            btn.remove();
-            isAdded--;
+    const help = document.getElementsByClassName("infotext");
 
-            finalGrammOfAlc = finalGrammOfAlc - precentOfThis;
-            console.log("finalGrammOfAlc is");
-            console.log(precentOfThis);
-            console.log(finalGrammOfAlc);
-        });
-
-document.getElementById("clearDataButton").addEventListener("click", function clearLocalStorage() {
-    localStorage.clear();
-    location.reload();
+    for (let i = 0; i < help.length; i++) {
+        help[i].classList.toggle("show");
+    }
 });
-
-*/
 
 
 

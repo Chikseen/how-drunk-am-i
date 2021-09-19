@@ -7,17 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Full I AM</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/infoText.css">
 </head>
 
 <body>
+    <input type="button" id="infobtn" name="onewaybtn" value="NeedHelp" class="btn">
     <div class="maincontent">
         <label>Sex</label>
+        <div class="infotext" hidden>
+            <p>Here you can chose your biological sex</p>
+        </div>
         <div class="inputField" id="sexIP">
             <input type="button" id="gsm" name="getsex" value="male" class="btn">
             <input type="button" id="gsf" name="getsex" value="female" class="btn">
         </div>
 
         <label>Personal Data</label>
+        <div class="infotext" hidden>
+            <p>Here you can insert your height, weight and the time you started drinking</p>
+            <p>! If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
+        </div>
         <div class="inputField" id="inputCombinedSlider">
             <div class="combinedField">
                 <input type="range" min="1" max="300" value="170" id="ageslider" class="slider"
@@ -40,6 +49,9 @@
         </div>
 
         <label>Cat</label>
+        <div class="infotext" hidden>
+            <p>Here you can chose the category of your drink</p>
+        </div>
         <div class="inputField" id="inputCombinedFuel">
             <input type="button" id="beer" name="cat" value="Beer" class="btn">
             <input type="button" id="wine" name="cat" value="wine" class="btn">
@@ -48,12 +60,20 @@
         </div>
 
         <label>Drink</label>
+        <div class="infotext" hidden>
+            <p>Here you can chose the drink</p>
+            <p>! Press "Custom" to submit your own drink to the database and work with it</p>
+        </div>
         <div class="inputField" id="selectFuelIP">
             <input type="button" value="Custom" id="customContentButton" class="btn" name="onewaybtn">
             <!--Content get added via JS-->
         </div>
 
         <label>Volume</label>
+        <div class="infotext" hidden>
+            <p>Here you can chose the volume each drink had</p>
+            <p>! Press 100ml for 100ml, but you you have drunk an exact amount that isnt listed blow, you can chose a custom value in the last field</p>
+        </div>
         <div class="inputField" id="inputCombinedVolume">
             <input type="button" id="1oz" name="volume" value="1oz" class="btn">
             <input type="button" id="100ml" name="volume" value="100ml" class="btn">
@@ -61,20 +81,30 @@
             <input type="button" id="250ml" name="volume" value="250ml" class="btn">
             <input type="button" id="10oz" name="volume" value="10oz" class="btn">
             <input type="button" id="500ml" name="volume" value="500ml" class="btn">
-            <input type="range" min="0" max="3000" value="1000" id="customVolumeSlider" class="slider" step="1"
+            <input type="range" min="0" max="3000" value="1000" id="customVolumeSlider" class="slider" step="50"
                 oninput="this.nextElementSibling.value = this.value">
             <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0" max="3000"
-                step="1"></input>
+                step="50"></input>
         </div>
 
         <label>Added Fuel</label>
+        <div class="infotext" hidden>
+            <p>Here you can see your added Drinks</p>
+            <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red your Drink will be added here</p>
+            <p>! To remove a Drink just press on it</p>
+        </div>
         <div class="inputField" id="addedFuelIP">
             <!--Content get added via JS-->
         </div>
 
         <label>Result</label>
+        <div class="infotext" hidden>
+            <p>Here you can press add to add a drink to added</p>
+            <p>Press calc to see your results, if something still blinks red, chose an option</p>
+        </div>
         <div class="inputField" id="resultIP">
-            <label id="result"></label>
+            <p id="result"></p>
+            <p id="resultinfo"></p>
         </div>
         <div class="inputField">
             <input type="button" value="calc" id="clacBtn" class="btn" name="onewaybtn">
@@ -83,12 +113,18 @@
         <div id="newContent" hidden>
 
             <label>Name your new Fuel</label>
+            <div class="infotext" hidden>
+                <p>To successfully submit a Drink it obviously need a name</p>
+            </div>
             <div class="inputField" id="inputCombinedNewFuel">
                 <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"
                     name="onewaybtn">
             </div>
 
             <label>What is it</label>
+            <div class="infotext" hidden>
+                <p>Chose the category your Drink is</p>
+            </div>
             <div class="inputField" id="inputCombinedNewCat">
                 <input type="button" id="newbeer" name="newCat" value="Beer" class="btn">
                 <input type="button" id="newwine" name="newCat" value="wine" class="btn">
@@ -97,6 +133,9 @@
             </div>
 
             <label>Set vol%</label>
+             <div class="infotext" hidden>
+                <p>and finaly chose the Pro-Mil % value your drink has</p>
+            </div>
             <div class="inputField" id="inputCombinedNewMil">
                 <input type="range" min="0" max="99" value="0" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">

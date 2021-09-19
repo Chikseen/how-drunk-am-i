@@ -1,0 +1,18 @@
+.infotext {
+    width: calc(100% - 20px);
+    height: inherit;
+    
+    background-color: rgba(254, 255, 195, 0.5);
+    border-radius: 10px;
+
+    font-size: 0.75rem;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.infotext.show {
+    display: block;
+}
