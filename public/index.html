@@ -8,25 +8,49 @@
     <title>How Full I AM</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/infoText.css">
+    <link rel="stylesheet" type="text/css" href="/css/svgHandler.css">
 </head>
 
 <body>
-    <input type="button" id="infobtn" name="onewaybtn" value="NeedHelp" class="btn">
+    <svg id="background" viewBox="0 0 100 250" preserveAspectRatio="none">
+        <defs>
+            <filter id="blur">
+                <feGaussianBlur stdDeviation="5" />
+            </filter>
+        </defs>
+        <path d="M -24 -5 C 2 29 8 33 33 -4 C 85 11 65 19 77 27 S 102.3333 7 115 -3 M -12 33 C 2 38 8 43 17 65 S -54 118 -12 84 
+            M 82 69 C 69 61 67 54 73 47 S 74.3333 42.3333 83 39 S 98 66.3333 106 80 Q 98 105 82 69 M 14 101 Q 28 91 24 122 T 2 133 
+            T 14 101 M 113 111 C 88 94 85 98 74 112 S 70.6667 136.6667 69 149 Q 67 167 120 185 M -13 148 C 27 144 0 162 24 185 Q 47 202 60 186 
+            Q 72 172 131 220 C 104.3333 213.6667 77.6667 207.3333 23 231 S -15 175 -13 148" />
+    </svg>
+
+    <div class="maincontent" id="titel">
+        <label>How Drunk Am I</label>
+        <input type="button" id="infobtn" name="onewaybtn" value="NeedHelp" class="btn">
+    </div>
     <div class="maincontent">
         <label>Sex</label>
-        <div class="infotext" hidden>
-            <p>Here you can chose your biological sex</p>
-        </div>
+
         <div class="inputField" id="sexIP">
-            <input type="button" id="gsm" name="getsex" value="male" class="btn">
-            <input type="button" id="gsf" name="getsex" value="female" class="btn">
+            <button id="gsm" name="getsex" value="male" class="btn">
+                <svg id="femaleSvg" class="svg" width="100%" height="70px" viewBox="0 0 10 10">
+                    <path class="svgPath"
+                        d="M 4 10 L 4 8 L 2 8 L 2 7 L 4 7 L 4 5 L 4.5 6 A 1 1 0 0 1 4.5 0 A 1 1 0 0 1 4.5 6 L 4.5 5 A 1 1 0 0 0 4.5 1 A 1 1 0 0 0 4.5 5 L 5 5 L 5 7 L 7 7 L 7 8 L 5 8 L 5 10" />
+                </svg>
+            </button>
+            <!--   <input type="button" id="gsm" name="getsex" value="male" class="btn">-->
+            <button id="gsf" name="getsex" value="female" class="btn">
+                <svg id="maleSvg" class="svg" width="100%" height="70px" viewBox="0 0 10 10">
+                    <path class="svgPath"
+                        d="M 5 9 A 1 1 0 0 0 2 4 A 1 1 0 0 0 5 9 L 4 8 A 1 1 0 0 1 3 5 A 1 1 0 0 1 4 8 M 5 4 L 7 2 L 6 2 L 6 1 L 9 1 L 9 4 L 8 4 L 8 3 L 6 5" />
+                </svg>
+            </button>
+        </div>
+        <div class="infotext">
+            <p>Here you can chose your biological sex</p>
         </div>
 
         <label>Personal Data</label>
-        <div class="infotext" hidden>
-            <p>Here you can insert your height, weight and the time you started drinking</p>
-            <p>! If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
-        </div>
         <div class="inputField" id="inputCombinedSlider">
             <div class="combinedField">
                 <input type="range" min="1" max="300" value="170" id="ageslider" class="slider"
@@ -43,37 +67,37 @@
             <div class="combinedField">
                 <input type="range" min="0" max="12" value="3" id="timeSlider" class="slider" step="0.1"
                     oninput="this.nextElementSibling.value = this.value">
-                <input class="output" id="timeSliderOut" type="number" placeholder="Time Passed" min="1"
-                    max="12" step="0.1"></input>
+                <input class="output" id="timeSliderOut" type="number" placeholder="Time Passed" min="1" max="12"
+                    step="0.1"></input>
             </div>
+        </div>
+        <div class="infotext">
+            <p>Here you can insert your height, weight and the time you started drinking</p>
+            <p>! If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
         </div>
 
         <label>Cat</label>
-        <div class="infotext" hidden>
-            <p>Here you can chose the category of your drink</p>
-        </div>
         <div class="inputField" id="inputCombinedFuel">
             <input type="button" id="beer" name="cat" value="Beer" class="btn">
             <input type="button" id="wine" name="cat" value="wine" class="btn">
             <input type="button" id="cocktail" name="cat" value="cocktail" class="btn">
             <input type="button" id="spirit" name="cat" value="spirit" class="btn">
         </div>
+        <div class="infotext">
+            <p>Here you can chose the category of your drink</p>
+        </div>
 
         <label>Drink</label>
-        <div class="infotext" hidden>
-            <p>Here you can chose the drink</p>
-            <p>! Press "Custom" to submit your own drink to the database and work with it</p>
-        </div>
         <div class="inputField" id="selectFuelIP">
             <input type="button" value="Custom" id="customContentButton" class="btn" name="onewaybtn">
             <!--Content get added via JS-->
         </div>
+        <div class="infotext">
+            <p>Here you can chose the drink</p>
+            <p>! Press "Custom" to submit your own drink to the database and work with it</p>
+        </div>
 
         <label>Volume</label>
-        <div class="infotext" hidden>
-            <p>Here you can chose the volume each drink had</p>
-            <p>! Press 100ml for 100ml, but you you have drunk an exact amount that isnt listed blow, you can chose a custom value in the last field</p>
-        </div>
         <div class="inputField" id="inputCombinedVolume">
             <input type="button" id="1oz" name="volume" value="1oz" class="btn">
             <input type="button" id="100ml" name="volume" value="100ml" class="btn">
@@ -83,25 +107,27 @@
             <input type="button" id="500ml" name="volume" value="500ml" class="btn">
             <input type="range" min="0" max="3000" value="1000" id="customVolumeSlider" class="slider" step="50"
                 oninput="this.nextElementSibling.value = this.value">
-            <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0" max="3000"
-                step="50"></input>
+            <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0"
+                max="3000" step="50"></input>
+        </div>
+        <div class="infotext">
+            <p>Here you can chose the volume each drink had</p>
+            <p>! Press 100ml for 100ml, but you you have drunk an exact amount that isnt listed blow, you can chose a
+                custom value in the last field</p>
         </div>
 
         <label>Added Fuel</label>
-        <div class="infotext" hidden>
-            <p>Here you can see your added Drinks</p>
-            <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red your Drink will be added here</p>
-            <p>! To remove a Drink just press on it</p>
-        </div>
         <div class="inputField" id="addedFuelIP">
             <!--Content get added via JS-->
         </div>
+        <div class="infotext">
+            <p>Here you can see your added Drinks</p>
+            <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red
+                your Drink will be added here</p>
+            <p>! To remove a Drink just press on it</p>
+        </div>
 
         <label>Result</label>
-        <div class="infotext" hidden>
-            <p>Here you can press add to add a drink to added</p>
-            <p>Press calc to see your results, if something still blinks red, chose an option</p>
-        </div>
         <div class="inputField" id="resultIP">
             <p id="result"></p>
             <p id="resultinfo"></p>
@@ -110,44 +136,51 @@
             <input type="button" value="calc" id="clacBtn" class="btn" name="onewaybtn">
             <input type="button" value="add" id="addBtn" class="btn" name="onewaybtn">
         </div>
-        <div id="newContent" hidden>
+        <div class="infotext">
+            <p>Here you can press add to add a drink to added</p>
+            <p>Press calc to see your results, if something still blinks red, chose an option</p>
+        </div>
 
+
+        <div id="newContent">
             <label>Name your new Fuel</label>
-            <div class="infotext" hidden>
-                <p>To successfully submit a Drink it obviously need a name</p>
-            </div>
+
             <div class="inputField" id="inputCombinedNewFuel">
                 <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"
                     name="onewaybtn">
             </div>
+            <div class="infotext">
+                <p>To successfully submit a Drink it obviously need a name</p>
+            </div>
 
             <label>What is it</label>
-            <div class="infotext" hidden>
-                <p>Chose the category your Drink is</p>
-            </div>
             <div class="inputField" id="inputCombinedNewCat">
                 <input type="button" id="newbeer" name="newCat" value="Beer" class="btn">
                 <input type="button" id="newwine" name="newCat" value="wine" class="btn">
                 <input type="button" id="newcocktail" name="newCat" value="cocktail" class="btn">
                 <input type="button" id="newspirit" name="newCat" value="spirit" class="btn">
             </div>
+            <div class="infotext">
+                <p>Chose the category your Drink is</p>
+            </div>
 
             <label>Set vol%</label>
-             <div class="infotext" hidden>
-                <p>and finaly chose the Pro-Mil % value your drink has</p>
-            </div>
             <div class="inputField" id="inputCombinedNewMil">
                 <input type="range" min="0" max="99" value="0" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
                 <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1"
                     max="99"></input>
             </div>
+            <div class="infotext">
+                <p>and finaly chose the Pro-Mil % value your drink has</p>
+            </div>
+
             <div class="inputField">
                 <input type="button" value="Submit" id="sendRequestButton" class="btn" name="onewaybtn">
                 <input type="button" value="Edit Submited Data" id="clearDataButton" class="btn" name="onewaybtn">
             </div>
             <div class="inputField" id="editSubmitedIP">
-                 <!--Content get added via JS-->
+                <!--Content get added via JS-->
             </div>
         </div>
     </div>

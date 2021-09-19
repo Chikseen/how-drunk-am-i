@@ -11,8 +11,11 @@
     margin-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
+
+    transform: rotateX(90deg);
+    transition: all 0.25s ease-out;
 }
 
 .infotext.show {
-    display: block;
+    transform: rotateX(0deg);
 }
