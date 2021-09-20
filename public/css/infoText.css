@@ -12,10 +12,10 @@
     padding-left: 10px;
     padding-right: 10px;
 
-    transform: rotateX(90deg);
+    transform: rotateY(90deg);
     transition: all 0.25s ease-out;
 }
 
 .infotext.show {
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
 }

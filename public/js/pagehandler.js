@@ -144,6 +144,13 @@ function loadcontent(data) {
         btn.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
         document.getElementById("selectFuelIP").append(btn);
 
+        console.log(data[i].newcat)
+
+        if (data[i].newcat == "newbeer") {
+            console.log("this is beer")
+            
+        }
+
         setMIlFeedback(btn, data[i].mil.toFixed(1))
     }
 }
@@ -231,14 +238,17 @@ document.getElementById("clearDataButton").addEventListener("click", function sh
 });
 
 
-document.getElementById("infobtn").addEventListener("click", function showhelp() {
+let helpbtn = document.getElementsByName("helpButton");
+for (let i = 0; i < helpbtn.length; i++) { 
+    helpbtn[i].addEventListener("click", function showhelp() {
 
-    const help = document.getElementsByClassName("infotext");
-
-    for (let i = 0; i < help.length; i++) {
-        help[i].classList.toggle("show");
-    }
-});
+        const help = document.getElementsByClassName("infotext");
+    
+        for (let i = 0; i < help.length; i++) {
+            help[i].classList.toggle("show");
+        }
+    });
+}
 
 
 

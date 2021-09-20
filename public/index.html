@@ -12,45 +12,72 @@
 </head>
 
 <body>
-    <svg id="background" viewBox="0 0 100 250" preserveAspectRatio="none">
-        <defs>
-            <filter id="blur">
-                <feGaussianBlur stdDeviation="5" />
-            </filter>
-        </defs>
-        <path d="M -24 -5 C 2 29 8 33 33 -4 C 85 11 65 19 77 27 S 102.3333 7 115 -3 M -12 33 C 2 38 8 43 17 65 S -54 118 -12 84 
-            M 82 69 C 69 61 67 54 73 47 S 74.3333 42.3333 83 39 S 98 66.3333 106 80 Q 98 105 82 69 M 14 101 Q 28 91 24 122 T 2 133 
-            T 14 101 M 113 111 C 88 94 85 98 74 112 S 70.6667 136.6667 69 149 Q 67 167 120 185 M -13 148 C 27 144 0 162 24 185 Q 47 202 60 186 
-            Q 72 172 131 220 C 104.3333 213.6667 77.6667 207.3333 23 231 S -15 175 -13 148" />
-    </svg>
+    <div id="svg-wrapper">
+        <svg class="background" id="bl1" viewBox="0 0 100 230">
+            <path d="M 5 5 A 1 1 0 0 0 32 -11 A 1 1 0 0 0 5 5 M 5 35 A 1 1 0 0 0 -5 75 
+            A 1 1 0 0 0 5 35 M 75 9 A 1 1 0 0 0 105 -10 A 1 1 0 0 0 75 9 M 75 30 A 1 1 0 0 0 120 55 
+            A 1 1 0 0 0 75 30 M 5 85 A 1 1 0 0 0 20 95 A 1 1 0 0 0 5 85 M 75 100 A 1 1 0 0 0 140 131 
+            A 1 1 0 0 0 75 100 M 27 120 A 1 1 0 0 0 5 135 A 1 1 0 0 0 27 120 M 6 156 A 1 1 0 0 0 47 229 
+            A 1 1 0 0 0 6 156 M 75 160 A 1 1 0 0 0 91 179 A 1 1 0 0 0 75 160" />
+        </svg>
+        <svg class="background" id="bl2" viewBox="0 0 100 230">
+            <path d="M 13 36 A 1 1 0 0 0 39 17 A 1 1 0 0 0 13 36 M 13 66 A 1 1 0 0 0 31 87 A 1 1 0 0 0 13 66 
+            M 97 48 A 1 1 0 0 0 86 26 A 1 1 0 0 0 97 48 M 66 71 A 1 1 0 0 0 94 58 A 1 1 0 0 0 66 71 M 22 109 
+            A 1 1 0 0 0 2 103 A 1 1 0 0 0 22 109 M 75 100 A 1 1 0 0 0 76 138 A 1 1 0 0 0 75 100 M 27 120 
+            A 1 1 0 0 0 19 134 A 1 1 0 0 0 27 120 M 15 215 A 1 1 0 0 0 40 193 A 1 1 0 0 0 15 215 M 109 198 
+            A 1 1 0 0 0 114 222 A 1 1 0 0 0 109 198 M 10 150 A 1 1 0 0 0 23 171 A 1 1 0 0 0 10 150 M 65 165 
+            A 1 1 0 0 0 95 176 A 1 1 0 0 0 65 165" />
+        </svg>
+    </div>
 
     <div class="maincontent" id="titel">
         <label>How Drunk Am I</label>
-        <input type="button" id="infobtn" name="onewaybtn" value="NeedHelp" class="btn">
     </div>
-    <div class="maincontent">
-        <label>Sex</label>
 
+
+    <!--MAINCONTENT-->
+    <div class="maincontent" id="maincontent">
+
+
+        <!--MAINCONTENT  SEX-->
+        <div class="inputHeader">
+            <label>Sex</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="sexIP">
             <button id="gsm" name="getsex" value="male" class="btn">
                 <svg id="femaleSvg" class="svg" width="100%" height="70px" viewBox="0 0 10 10">
-                    <path class="svgPath"
-                        d="M 4 10 L 4 8 L 2 8 L 2 7 L 4 7 L 4 5 L 4.5 6 A 1 1 0 0 1 4.5 0 A 1 1 0 0 1 4.5 6 L 4.5 5 A 1 1 0 0 0 4.5 1 A 1 1 0 0 0 4.5 5 L 5 5 L 5 7 L 7 7 L 7 8 L 5 8 L 5 10" />
+                    <path class="svgPath" d="M 4 10 L 4 8 L 2 8 L 2 7 L 4 7 L 4 5 L 4.5 6 A 1 1 0 0 1 4.5 0 A 1 1 0 0 1 4.5 6 
+                        L 4.5 5 A 1 1 0 0 0 4.5 1 A 1 1 0 0 0 4.5 5 L 5 5 L 5 7 L 7 7 L 7 8 L 5 8 L 5 10" />
                 </svg>
             </button>
             <!--   <input type="button" id="gsm" name="getsex" value="male" class="btn">-->
             <button id="gsf" name="getsex" value="female" class="btn">
                 <svg id="maleSvg" class="svg" width="100%" height="70px" viewBox="0 0 10 10">
-                    <path class="svgPath"
-                        d="M 5 9 A 1 1 0 0 0 2 4 A 1 1 0 0 0 5 9 L 4 8 A 1 1 0 0 1 3 5 A 1 1 0 0 1 4 8 M 5 4 L 7 2 L 6 2 L 6 1 L 9 1 L 9 4 L 8 4 L 8 3 L 6 5" />
+                    <path class="svgPath" d="M 5 9 A 1 1 0 0 0 2 4 A 1 1 0 0 0 5 9 L 4 8 A 1 1 0 0 1 3 5 A 1 1 0 0 1 4 8 M 5 4 
+                        L 7 2 L 6 2 L 6 1 L 9 1 L 9 4 L 8 4 L 8 3 L 6 5" />
                 </svg>
             </button>
         </div>
         <div class="infotext">
             <p>Here you can chose your biological sex</p>
+            <p>Left: Female - Right: Male</p>
         </div>
 
-        <label>Personal Data</label>
+
+        <!--MAINCONTENT  PERSONAL DATA-->
+        <div class="inputHeader">
+            <label>Personal Data</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="inputCombinedSlider">
             <div class="combinedField">
                 <input type="range" min="1" max="300" value="170" id="ageslider" class="slider"
@@ -76,9 +103,23 @@
             <p>! If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
         </div>
 
-        <label>Cat</label>
+
+        <!--MAINCONTENT  CATEGORY-->
+        <div class="inputHeader">
+            <label>Category</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="inputCombinedFuel">
-            <input type="button" id="beer" name="cat" value="Beer" class="btn">
+            <button id="beer" name="cat" value="Beer" class="btn">
+                <svg class="svg" viewBox="0 0 30 30">
+                    <use xlink:href="#beerIcon"></use>
+                </svg>
+                <p>Beer</p>
+            </button>
             <input type="button" id="wine" name="cat" value="wine" class="btn">
             <input type="button" id="cocktail" name="cat" value="cocktail" class="btn">
             <input type="button" id="spirit" name="cat" value="spirit" class="btn">
@@ -87,7 +128,16 @@
             <p>Here you can chose the category of your drink</p>
         </div>
 
-        <label>Drink</label>
+
+        <!--MAINCONTENT  DRINK-->
+        <div class="inputHeader">
+            <label>Drink</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="selectFuelIP">
             <input type="button" value="Custom" id="customContentButton" class="btn" name="onewaybtn">
             <!--Content get added via JS-->
@@ -97,7 +147,16 @@
             <p>! Press "Custom" to submit your own drink to the database and work with it</p>
         </div>
 
-        <label>Volume</label>
+
+        <!--MAINCONTENT  VOLUME-->
+        <div class="inputHeader">
+            <label>Volume</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="inputCombinedVolume">
             <input type="button" id="1oz" name="volume" value="1oz" class="btn">
             <input type="button" id="100ml" name="volume" value="100ml" class="btn">
@@ -112,11 +171,36 @@
         </div>
         <div class="infotext">
             <p>Here you can chose the volume each drink had</p>
-            <p>! Press 100ml for 100ml, but you you have drunk an exact amount that isnt listed blow, you can chose a
-                custom value in the last field</p>
+            <p>You can either chose a fixed volume or use the slider for a custom one</p>
         </div>
 
-        <label>Added Fuel</label>
+        <!--MAINCONTENT  ADD DRINK-->
+        <div class="inputHeader">
+            <label>Add Drinks</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="inputField">
+            <input type="button" value="add" id="addBtn" class="btn" name="onewaybtn">
+        </div>
+        <div class="infotext">
+            <p>If your slected everything so notthing is blinking, you can press this button to add a drink to the list
+            </p>
+        </div>
+
+
+        <!--MAINCONTENT  ADDED DRINK-->
+        <div class="inputHeader">
+            <label>Added Drinks</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="addedFuelIP">
             <!--Content get added via JS-->
         </div>
@@ -127,24 +211,42 @@
             <p>! To remove a Drink just press on it</p>
         </div>
 
-        <label>Result</label>
+
+        <!--MAINCONTENT  Result-->
+        <div class="inputHeader">
+            <label>Result</label>
+            <button name="helpButton" value="NeedHelp" class="btn">
+                <svg class="svg" viewBox="0 0 10 10">
+                    <use xlink:href="#helpIcon"></use>
+                </svg>
+            </button>
+        </div>
         <div class="inputField" id="resultIP">
             <p id="result"></p>
             <p id="resultinfo"></p>
         </div>
         <div class="inputField">
             <input type="button" value="calc" id="clacBtn" class="btn" name="onewaybtn">
-            <input type="button" value="add" id="addBtn" class="btn" name="onewaybtn">
         </div>
         <div class="infotext">
-            <p>Here you can press add to add a drink to added</p>
             <p>Press calc to see your results, if something still blinks red, chose an option</p>
         </div>
 
 
-        <div id="newContent">
-            <label>Name your new Fuel</label>
 
+        <!--NEWCONTENT-->
+        <div id="newContent">
+
+
+            <!--NEWCONTENT  NEW FUEL-->
+            <div class="inputHeader">
+                <label>Name your new Fuel</label>
+                <button name="helpButton" value="NeedHelp" class="btn">
+                    <svg class="svg" viewBox="0 0 10 10">
+                        <use xlink:href="#helpIcon"></use>
+                    </svg>
+                </button>
+            </div>
             <div class="inputField" id="inputCombinedNewFuel">
                 <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"
                     name="onewaybtn">
@@ -153,7 +255,16 @@
                 <p>To successfully submit a Drink it obviously need a name</p>
             </div>
 
-            <label>What is it</label>
+
+            <!--NEWCONTENT  CATEGORY-->
+            <div class="inputHeader">
+                <label>What is it</label>
+                <button name="helpButton" value="NeedHelp" class="btn">
+                    <svg class="svg" heigth="100%" viewBox="0 0 10 10">
+                        <use xlink:href="#helpIcon"></use>
+                    </svg>
+                </button>
+            </div>
             <div class="inputField" id="inputCombinedNewCat">
                 <input type="button" id="newbeer" name="newCat" value="Beer" class="btn">
                 <input type="button" id="newwine" name="newCat" value="wine" class="btn">
@@ -164,7 +275,16 @@
                 <p>Chose the category your Drink is</p>
             </div>
 
-            <label>Set vol%</label>
+
+            <!--NEWCONTENT  MIL-->
+            <div class="inputHeader">
+                <label>Set vol%</label>
+                <button name="helpButton" value="NeedHelp" class="btn">
+                    <svg class="svg" viewBox="0 0 10 10">
+                        <use xlink:href="#helpIcon"></use>
+                    </svg>
+                </button>
+            </div>
             <div class="inputField" id="inputCombinedNewMil">
                 <input type="range" min="0" max="99" value="0" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
@@ -185,9 +305,25 @@
         </div>
     </div>
     </div>
-    <script src="/buttonlogic.js"></script>
-    <script src="/calc.js"></script>
-    <script src="/pagehandler.js"></script>
+
+    <script src="/js/buttonlogic.js"></script>
+    <script src="/js/calc.js"></script>
+    <script src="/js/pagehandler.js"></script>
+    <script src="/js/parallax.js"></script>
+
+    <div class="REUSABLE SVG" hidden>
+        <svg class="svg" viewBox="0 0 10 10">
+            <path id="helpIcon" class="svgPath" d="M 3 4 L 2 4 A 1 1 0 0 1 8 3 C 8 6 7 6 6 6 L 6 7.5 L 5 7.5 L 5 5.5 C 6 5 7 6 7 3 
+            A 1 1 0 0 0 3 4 M 6 8 A 1 1 0 0 0 5 10 A 1 1 0 0 0 6 8" />
+        </svg>
+        <svg class="svg" viewBox="0 0 30 30">
+            <path id="beerIcon"
+                d="M 5 25 Q 5 28 8 28 L 22 28 Q 25 28 25 25 L 5 25 L 5 7 A 1 1 0 0 1 7 6 A 1 1 0 0 1 11 7 A 1 1 0 0 1 14 5 
+                A 1 1 0 0 1 16 7 A 1 1 0 0 1 21 7 A 1 1 0 0 1 23 7 A 1 1 0 0 1 25 7 L 25 25 M 25 10 L 28 10 L 30 12 L 30 20 
+                L 28 22 L 25 22 M 9 10 L 9 23 L 11 23 L 11 10 L 9 10 M 14 10 L 14 23 L 16 23 L 16 10 L 14 10 M 19 10 L 19 23 
+                L 21 23 L 21 10 L 19 10 M 26 11 L 26 21 L 28 21 L 29 20 L 29 12 L 28 11 L 26 11" />
+        </svg>
+    </div>
 </body>
 
 </html>

@@ -73,7 +73,7 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
 
                 console.log("new passed: " + timePassed)
             }
-            document.getElementById("resultinfo").textContent = "You reach zero after " + timePassed.toFixed(1) + " hours";
+            document.getElementById("resultinfo").textContent = "You will be sober after" + timePassed.toFixed(1) + " hours";
         }
         document.getElementById("resultIP").style.display = "flex"
     }

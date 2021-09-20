@@ -1,6 +1,6 @@
 html, body { 
-    height: inherit; 
-    background: linear-gradient(100deg, rgb(49, 48, 47) 0%, rgb(90, 90, 88) 25%, rgb(119, 115, 111) 50%,rgb(85, 80, 75) 75%, rgb(49, 47, 43) 100%);
+    height: 100%; 
+    background: linear-gradient(90deg, rgb(49, 48, 47) 0%, rgb(90, 90, 88) 25%, rgb(119, 115, 111) 50%,rgb(85, 80, 75) 75%, rgb(49, 47, 43) 100%);
 }
 .maincontent {
     font-size: 1rem;
@@ -8,7 +8,6 @@ html, body {
     background-color: rgba(131, 129, 126, 0.644);
     position: relative;
     width: 500px;
-    height: inherit;
     top: 20px;
     left: calc(50% - 250px);
 
@@ -37,9 +36,6 @@ html, body {
 #titel label{
     font-size: 3rem;
     padding-bottom: 100px;
-}
-#infobtn {
-    height: 25px;
 }
 
 .inputField {
@@ -70,11 +66,27 @@ html, body {
     flex-direction: column;
 }
 
+.inputHeader {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 5px;
+}
+.inputHeader label{
+  font-size: 1.5rem;
+}
+.inputHeader button{
+    padding: 2.5px;
+    margin: 0px;
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 0px;
+}
 #newContent { 
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 100%;
+    width: 500px;
     height: inherit;
 
     padding: 20px;
@@ -111,14 +123,24 @@ html, body {
 
     margin-left: 10px;
     margin-right: 10px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 
     border-radius: 10px;
     background-image:  url("data:image/svg+xml;utf8,<svg> … </svg>");
-     background-color: ivory;
+    background-color: ivory;
     box-shadow: 2.5px 2.5px 15px 2.5px rgb(124, 114, 98);
     text-align: center;
 
     transition: 0.25s ease-out;
+}
+
+.btn p {
+    padding: 20px;
+    margin: 0px;
 }
 
 .btn.isChecked {
@@ -128,7 +150,9 @@ html, body {
 .btn:hover {
     background-color: rgb(163, 153, 64);
 }
-
+#addBtn {
+    width: 100%;
+}
 #newfuelbtn {
     
     flex-wrap: wrap;
@@ -194,6 +218,10 @@ html, body {
         width: 100%;
         left: 0px;
 
+        padding: 0px;
+    }
+
+    #newContent {
         padding: 0px;
     }
 
