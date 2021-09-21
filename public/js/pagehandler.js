@@ -116,7 +116,7 @@ async function changecontent(cdto) {
         data.push(JSON.parse(localStorage.getItem(('ownDrinkID' + tryCount))));
         tryCount++;
     }
-    tryCount = 1
+    tryCount = 1;
 
     const contentManager = document.getElementsByName("newContent");
 
@@ -126,7 +126,7 @@ async function changecontent(cdto) {
 
     for (let i = 0; i < data.length; i++) {
         if (data[i].newcat == ("new" + cdto)) {
-            document.getElementById(data[i].fuel).style.display = "block";
+            document.getElementById(data[i].fuel).style.display = "flex";
         }
     }
 }
@@ -137,19 +137,33 @@ function loadcontent(data) {
     for (let i = 0; i < data.length; i++) {
         let btn = document.createElement('button');
 
+        const p = document.createElement('p');
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+        svg.setAttribute('viewBox', '0 0 30 30');
+        svg.setAttribute('class', 'svg');
+        if (data[i].newcat == "newbeer") {
+            path.setAttribute(
+                'd',
+                'M 5 25 Q 5 28 8 28 L 22 28 Q 25 28 25 25 L 5 25 L 5 7 A 1 1 0 0 1 7 6 A 1 1 0 0 1 11 7 A 1 1 0 0 1 14 5  \
+                A 1 1 0 0 1 16 7 A 1 1 0 0 1 21 7 A 1 1 0 0 1 23 7 A 1 1 0 0 1 25 7 L 25 25 M 25 10 L 28 10 L 30 12 L 30 20 \
+                L 28 22 L 25 22 M 9 10 L 9 23 L 11 23 L 11 10 L 9 10 M 14 10 L 14 23 L 16 23 L 16 10 L 14 10 M 19 10 L 19 23  \
+                L 21 23 L 21 10 L 19 10 M 26 11 L 26 21 L 28 21 L 29 20 L 29 12 L 28 11 L 26 11'
+            );
+        }
+
+        svg.append(path);
+        btn.append(svg);
+
         btn.setAttribute("class", "btn");
         btn.setAttribute("name", "newContent");
         btn.setAttribute("id", data[i].fuel);
 
-        btn.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
+        p.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
+        btn.append(p);
+
         document.getElementById("selectFuelIP").append(btn);
-
-        console.log(data[i].newcat)
-
-        if (data[i].newcat == "newbeer") {
-            console.log("this is beer")
-            
-        }
 
         setMIlFeedback(btn, data[i].mil.toFixed(1))
     }
@@ -239,11 +253,11 @@ document.getElementById("clearDataButton").addEventListener("click", function sh
 
 
 let helpbtn = document.getElementsByName("helpButton");
-for (let i = 0; i < helpbtn.length; i++) { 
+for (let i = 0; i < helpbtn.length; i++) {
     helpbtn[i].addEventListener("click", function showhelp() {
 
         const help = document.getElementsByClassName("infotext");
-    
+
         for (let i = 0; i < help.length; i++) {
             help[i].classList.toggle("show");
         }
