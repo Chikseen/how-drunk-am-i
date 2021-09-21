@@ -83,6 +83,16 @@ html, body {
     height: 1.5rem;
     min-width: 0px;
 }
+#editSubmitedIP {
+    display: none;
+
+    height: inherit;
+    padding: 20px;
+}
+
+#editSubmitedIP.show {
+    display: flex;
+}
 #newContent { 
     position: absolute;
     left: 0px;
@@ -155,7 +165,7 @@ html, body {
 .btn:hover {
     background-color: rgb(163, 153, 64);
 }
-#addBtn {
+#addBtn, #sendRequestButton, #clacBtn {
     width: 100%;
 }
 #newfuelbtn {

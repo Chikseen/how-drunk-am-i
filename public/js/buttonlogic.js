@@ -1,33 +1,42 @@
 
-function addAction() {
-    const btns = document.getElementsByClassName("btn")
+function addAction(btn, name, id) {
+    if (btn == undefined) {
+        const btns = document.getElementsByClassName("btn")
 
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function test() {
-            toggleLogic(btns[i].name, btns[i].id);
-
-            if (btns[i].name == "cat") {
-                setNewCat(btns[i].id)
-                changecontent(btns[i].id);
-            }
-            else if (btns[i].name == "onewaybtn") {
-                btns[i].classList.toggle("isChecked", false);
-            }
-            else if (btns[i].name == "getsex") {
-                setSex(btns[i].id)
-            }
-            else if (btns[i].name == "volume") {
-                setVolume(btns[i].id)
-            }
-            else if (btns[i].name == "newContent") {
-                setDrink(btns[i].id)
-                setmil(btns[i].id);
-            }
-            else if (btns[i].name == "newCat") {
-                setNewCat(btns[i].id)
-            }
-        });
+        for (let i = 0; i < btns.length; i++) {
+            setLogic(btns[i], btns[i].name, btns[i].id)
+        }
     }
+    else {
+        setLogic(btn, name, id)
+    }
+}
+
+function setLogic(btn, name, id) {
+    btn.addEventListener("click", function test() {
+        toggleLogic(name, id);
+
+        if (name == "cat") {
+            setNewCat(id)
+            changecontent(id);
+        }
+        else if (name == "onewaybtn") {
+            btn.classList.toggle("isChecked", false);
+        }
+        else if (name == "getsex") {
+            setSex(id)
+        }
+        else if (name == "volume") {
+            setVolume(id)
+        }
+        else if (name == "newContent") {
+            setDrink(id)
+            setmil(id);
+        }
+        else if (name == "newCat") {
+            setNewCat(id)
+        }
+    });
 }
 
 function toggleLogic(btnname, btnid) {

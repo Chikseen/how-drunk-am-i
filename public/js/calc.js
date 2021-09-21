@@ -70,8 +70,6 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
             document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
             while (parseFloat((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed)) > 0) {
                 timePassed = (timePassed + 0.1);
-
-                console.log("new passed: " + timePassed)
             }
             document.getElementById("resultinfo").textContent = "You will be sober after" + timePassed.toFixed(1) + " hours";
         }
@@ -196,8 +194,6 @@ function resetAnimation(el) {
 }
 
 document.getElementById("addBtn").addEventListener("click", function addFuel() {
-
-
 
     if (checkVolume() == false) {
         const vip = document.getElementById("inputCombinedVolume")
