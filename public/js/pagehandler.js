@@ -1,5 +1,6 @@
 
 let newcat = "";
+let currentData = [];
 
 function setNewCat(id) {
     newcat = id;
@@ -42,8 +43,8 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
             //     const response = await fetch("/sendrequest", packMyData(data))
             //     const resp = await response.json();
             newLocalItem(data);
-            getStorageHander(data);
-            showContentadder();
+            let trans = [data]
+            loadcontent(trans);
             //     console.log(resp)
             showContentadder();
         }
@@ -131,12 +132,16 @@ function loadcontent(data) {
         btn.setAttribute("name", "newContent");
         btn.setAttribute("id", data[i].fuel);
 
-        p.textContent = (data[i].fuel + " - " + data[i].mil.toFixed(1) + "vol%");
+        console.log("data[i]mil: " + parseFloat(data[i].mil));
+
+        p.textContent = (data[i].fuel + " - " + parseFloat(data[i].mil).toFixed(1) + "vol%");
         btn.append(p);
 
         document.getElementById("selectFuelIP").append(btn);
+        
+        setMIlFeedback(btn, parseFloat(data[i].mil).toFixed(1))
 
-        setMIlFeedback(btn, data[i].mil.toFixed(1))
+        currentData.push(data[i])
 
         if (btn.getAttribute('listener') !== 'true') {
             addAction(btn, "newContent", data[i].fuel)
@@ -149,36 +154,24 @@ function setMIlFeedback(btn, mil) {
 }
 
 function setIcon(data, btn) {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
-    svg.setAttribute('viewBox', '0 0 30 30');
-    svg.setAttribute('class', 'svg');
-
-    svg.append(path);
-
+    const obj = document.createElement("object");
+    obj.setAttribute("class", "catIcon");
+    obj.setAttribute("type", "image/svg+xml");
+    obj.setAttribute("width", "25%");
+    obj.setAttribute("height", "100%");
     if (data == "newbeer") {
-        path.setAttribute(
-            'd',
-            'M 5 25 Q 5 28 8 28 L 22 28 Q 25 28 25 25 L 5 25 L 5 7 A 1 1 0 0 1 7 6 A 1 1 0 0 1 11 7 A 1 1 0 0 1 14 5  \
-            A 1 1 0 0 1 16 7 A 1 1 0 0 1 21 7 A 1 1 0 0 1 23 7 A 1 1 0 0 1 25 7 L 25 25 M 25 10 L 28 10 L 30 12 L 30 20 \
-            L 28 22 L 25 22 M 9 10 L 9 23 L 11 23 L 11 10 L 9 10 M 14 10 L 14 23 L 16 23 L 16 10 L 14 10 M 19 10 L 19 23  \
-            L 21 23 L 21 10 L 19 10 M 26 11 L 26 21 L 28 21 L 29 20 L 29 12 L 28 11 L 26 11'
-        );
+        obj.setAttribute("data", "/icon/beer.svg");
     }
-    btn.append(svg);
-}
-
-
-async function setmil(cdto) {
-
-    const data = await fetchData()
-
-    for (item of data) {
-        if (item.fuel == cdto) {
-            setMil(item.mil);
-        }
+    else if(data == "newwine") {
+        obj.setAttribute("data", "/icon/wine.svg");
     }
+    else if(data == "newcocktail") {
+        obj.setAttribute("data", "/icon/cocktail.svg");
+    }
+    else if(data == "newspirit") {
+        obj.setAttribute("data", "/icon/spirit.svg");
+    }
+    btn.append(obj);
 }
 
 
@@ -202,8 +195,8 @@ function getStorageHander() {
         let fuel = data[i].fuel
 
         btn.addEventListener("click", function removeme() {
-            console.log("data[i] " +(" " + this.id))
-            localStorage.removeItem( this.id);
+            console.log("data[i] " + (" " + this.id))
+            localStorage.removeItem(this.id);
             document.getElementById(this.id).remove()
             btn.remove();
         });
@@ -229,10 +222,6 @@ for (let i = 0; i < helpbtn.length; i++) {
         }
     });
 }
-
-
-
-
 
 let callData;
 async function fetchData() {

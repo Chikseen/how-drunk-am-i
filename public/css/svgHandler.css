@@ -5,12 +5,12 @@
 }
 
 #bl1 {
-    fill: rgb(49, 48, 47);
+    fill: rgb(102, 91, 80);
     filter: blur(15px);
 }
 
 #bl2 {
-    fill: rgba(75, 70, 66, 0.75);
+    fill: rgba(80, 64, 50, 0.75);
     filter: blur(5px);
 }
 
@@ -29,17 +29,33 @@
     position: absolute;
     left: 0px;
     right: 0px;
-    height: 100%;
-
-    fill: rgb(49, 49, 49);
     height: calc(100% - 20px);
 }
+.objectloader {
+    pointer-events: none;
+}
+.catIcon {
+    position: absolute;
+    pointer-events: none;
 
-#femaleSvg:hover {
+    left: 15px;
+    height: calc(100% - 20px);
+    
+    fill: rgb(49, 49, 49);
+    transition: 0.25s ease-out;
+}
+.btn:hover .catIcon {
+    height: calc(100% + 10px);
+}
+
+#femaleSvg, #maleSvg {
+    transition: 0.25s ease-out;
+}
+.btn:hover #femaleSvg {
     fill: rgb(102, 45, 139);
 }
 
-#maleSvg:hover {
+.btn:hover #maleSvg {
     fill: rgb(42, 111, 167);
 }
 

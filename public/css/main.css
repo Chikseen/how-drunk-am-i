@@ -183,12 +183,16 @@ html, body {
     transition: 0.25s ease-out;
 }
 
+#pickrgb {
+    background-color:rgb(130, 115, 60);
+}
+
 .btn p {
     position: absolute;
     top: 0px;
-    left: 25%;
+    left: 35%;
     height: calc(100% - 20px);
-    width: calc(75% - 20px);
+    width: calc(75% - 40px);
 
     margin: 0px;
     padding: 10px;
@@ -205,6 +209,7 @@ html, body {
 .btn:hover {
     background-color: rgb(163, 153, 64);
 }
+
 #addBtn, #sendRequestButton, #clacBtn {
     width: 100%;
 }

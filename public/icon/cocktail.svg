@@ -1,0 +1,5 @@
+<svg id="cocktailSvg" class="svg" width="100%" height="70px" viewBox="0 0 20 25" xmlns="http://www.w3.org/2000/svg">
+<path fill="rgb(50, 50,50)" class="svgPath" d="M 1 25 L 19 25 A 1 1 0 0 0 19 23 L 12 23 Q 11 23 11 22 L 11 15 L 20 0 
+L 18 0 L 10 12 L 2 0 L 0 0 L 9 15 L 9 22 Q 9 23 8 23 L 1 23 A 1 1 0 0 0 1 25 M 4 3" />
+<path fill="rgb(100, 50,50)" class="svgPath" d="M 10 13 L 15 5 L 5 5 L 10 13" />
+</svg>

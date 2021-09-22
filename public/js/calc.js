@@ -19,7 +19,23 @@ function setDrink(id) {
     drink = id;
 }
 function setMil(id) {
-    currentPercentOfDrink = parseInt(id);
+    //DIRTY FIX BUT WHO CARES
+    //It isent dirty if it is working
+    const data = currentData;
+
+    console.log("is called")
+
+    console.log(data)
+    console.log(data.length)
+    for (let i = 0; i < data.length; i++) {
+        console.log("compare with")+
+        console.log(data[i].fuel)
+        console.log(id)
+        if (data[i].fuel == id) {
+            console.log(data[i].mil)
+            currentPercentOfDrink = (data[i].mil);
+        }
+    }
 }
 function setVolume(id) {
     document.getElementById('customVolumeSliderOut').style.background = "rgb(255, 255, 240)";
@@ -61,6 +77,7 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
         if (result <= 0) {
             result = 0;
             document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%°";
+            document.getElementById("resultinfo").textContent = "you are allrady clean";
         }
         else {
             document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
@@ -98,9 +115,16 @@ function checkSex() {
     }
 }
 
-let isChanged = false
-document.getElementById('customVolumeSliderOut').addEventListener("change", function getVolume() {
 
+let isChanged = false;
+document.getElementById("customVolumeSliderOut").addEventListener("change", function getVolume() {
+    getvolume()
+});
+document.getElementById("customVolumeSlider").addEventListener("change", function getVolume() {
+    getvolume()
+});
+function getvolume() {
+    console.log("is changed")
     volume = "";
     currentVolume = document.getElementById('customVolumeSliderOut').value;
 
@@ -109,22 +133,23 @@ document.getElementById('customVolumeSliderOut').addEventListener("change", func
     toggleLogic("volume", "");
 
     isChanged = true;
-});
+}
+
 function checkVolume() {
 
     switch (volume) {
-        case "1oz":
-            currentVolume = 1;
+        case "1cl":
+            currentVolume = 4;
             isChanged = true;
             break;
 
-        case "5oz":
-            currentVolume = 5;
+        case "4cl":
+            currentVolume = 16;
             isChanged = true;
             break;
 
-        case "10oz":
-            currentVolume = 10;
+        case "8cl":
+            currentVolume = 32;
             isChanged = true;
             break;
 
@@ -203,13 +228,19 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
     checkFuel();
 
     if (checkFuel() && checkVolume()) {
+        console.log("!___!")
 
-        let btn = document.createElement('button');
-
+    const btn = document.createElement('button');
+    const p = document.createElement('p');
+        
         btn.setAttribute("class", "btn");
         btn.setAttribute("name", "addedContent");
         btn.setAttribute("id", ("added" + drink));
-        btn.textContent = drink + " - " + currentVolume;
+
+        p.textContent = drink + " - " + currentVolume;
+        btn.append(p);
+
+        setMIlFeedback(btn, currentPercentOfDrink);
 
         document.getElementById("addedFuelIP").append(btn);
 
@@ -220,14 +251,14 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
 
 
         const precentOfThis = (((currentVolume * currentPercentOfDrink) / 100) * 0.8);
-        finalGrammOfAlc = finalGrammOfAlc + ((((currentVolume * currentPercentOfDrink) / 100) * 0.8));
+        finalGrammOfAlc = finalGrammOfAlc + precentOfThis;
         console.log("finalGrammOfAlc is")
         console.log(finalGrammOfAlc)
 
         isAdded++;
 
         btn.addEventListener("click", function removeme() {
-            btn.remove();
+            this.remove();
             isAdded--;
 
             finalGrammOfAlc = finalGrammOfAlc - precentOfThis;

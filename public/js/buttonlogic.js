@@ -31,7 +31,7 @@ function setLogic(btn, name, id) {
         }
         else if (name == "newContent") {
             setDrink(id)
-            setmil(id);
+            setMil(id);
         }
         else if (name == "newCat") {
             setNewCat(id)
