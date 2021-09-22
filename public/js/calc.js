@@ -1,7 +1,4 @@
 
-
-let age = 0;
-let weight = 0;
 let sex;
 let drink = "";
 let finalweight = 0;
@@ -32,16 +29,13 @@ function setVolume(id) {
 
 document.getElementById("clacBtn").addEventListener("click", function calcResult() {
 
-    age = parseFloat(document.getElementById('ageslider').value);
-    weight = parseFloat(document.getElementById('weightslider').value);
-    timePassed = parseFloat(document.getElementById('timeSlider').value);
+    finalage = parseFloat(document.getElementById('ageSliderOut').value) * parseFloat(heigthMultiplier);
+    finalweight = parseFloat(document.getElementById('weightSliderOut').value);
+    timePassed = parseFloat(document.getElementById('timeSliderOut').value);
 
-
-    finalweight = parseInt(weight);
-    finalage = parseInt(age);
-
+    console.log("heigth: " + finalage);
     console.log("sex: " + sex);
-    console.log("weight: " + weight);
+    console.log("weight: " + finalweight);
     console.log("fuel: " + drink)
     console.log("mil: " + finalGrammOfAlc)
     console.log("grammofalc: " + finalGrammOfAlc)
@@ -54,28 +48,32 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
 
     if ((checkSex() && checkFuel()) && checkVolume()) {
 
+        console.log("-")
         console.log("finalGrammOfAlc: " + finalGrammOfAlc)
         console.log("finalweight: " + finalweight)
         console.log("r: " + reduction)
         console.log("isAdded: " + isAdded)
+        console.log("time: " + timePassed)
 
         result = ((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed));
         console.log("result: " + result)
 
         if (result <= 0) {
             result = 0;
-            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
+            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%°";
         }
         else {
             document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
             while (parseFloat((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed)) > 0) {
                 timePassed = (timePassed + 0.1);
             }
-            document.getElementById("resultinfo").textContent = "You will be sober after" + timePassed.toFixed(1) + " hours";
+            document.getElementById("resultinfo").textContent = "You will be sober after " + timePassed.toFixed(1) + " hours";
         }
         document.getElementById("resultIP").style.display = "flex"
     }
 });
+
+
 
 function checkSex() {
 
@@ -101,10 +99,10 @@ function checkSex() {
 }
 
 let isChanged = false
-document.getElementById('customVolumeSlider').addEventListener("change", function getVolume() {
+document.getElementById('customVolumeSliderOut').addEventListener("change", function getVolume() {
 
     volume = "";
-    currentVolume = document.getElementById('customVolumeSlider').value;
+    currentVolume = document.getElementById('customVolumeSliderOut').value;
 
     document.getElementById('customVolumeSliderOut').style.background = "rgb(93, 155, 85)";
 
@@ -237,5 +235,99 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
             console.log(precentOfThis);
             console.log(finalGrammOfAlc);
         });
+    }
+});
+
+let heigthChangeTo = 0;
+let heigthMultiplier = 1;
+document.getElementById("heightChangeUnit").addEventListener("click", function setmultiplierHeigth() {
+    const heigthlider = document.getElementById('ageslider')
+    const heigthOut = document.getElementById('ageSliderOut')
+    const p = document.getElementById('heightChangeUnit')
+
+    switch (heigthChangeTo) {
+        case 0:
+            heigthMultiplier = 30.48;
+
+            p.textContent = "in inch"
+
+            heigthlider.setAttribute("max", "10")
+            heigthlider.setAttribute("step", "0.1")
+            heigthlider.setAttribute("min", "0.1")
+
+            heigthOut.setAttribute("max", "10")
+            heigthOut.setAttribute("step", "0.1")
+            heigthOut.setAttribute("min", "0.1")
+
+            heigthOut.value = (heigthOut.value * 0.0328084).toFixed(1)
+            heigthlider.value = heigthOut.value
+
+
+            heigthChangeTo++;
+            break;
+        case 1:
+            heigthMultiplier = 1;
+
+            p.textContent = "in cm"
+
+            heigthlider.setAttribute("max", "300")
+            heigthlider.setAttribute("step", "1")
+            heigthlider.setAttribute("min", "1")
+
+            heigthOut.setAttribute("max", "300")
+            heigthOut.setAttribute("step", "1")
+            heigthOut.setAttribute("min", "1")
+
+            heigthOut.value = (heigthOut.value * 30.48).toFixed(0)
+            heigthlider.value = heigthOut.value
+
+            heigthChangeTo = 0
+            break;
+    }
+});
+
+
+let weigthChangeTo = 0;
+let weigthMultiplier = 1;
+document.getElementById("weightChangeUnit").addEventListener("click", function setmultiplierWeigth() {
+    console.log("hi")
+    const weigthlider = document.getElementById('weightslider')
+    const weigthOut = document.getElementById('weightSliderOut')
+    const p = document.getElementById('weightChangeUnit')
+
+    switch (weigthChangeTo) {
+        case 0:
+            weigthMultiplier = 2.20462;
+
+            p.textContent = "in lbs"
+
+            weigthlider.setAttribute("max", "440")
+            weigthlider.setAttribute("min", "1")
+
+            weigthOut.setAttribute("max", "440")
+            weigthOut.setAttribute("min", "1")
+
+            weigthOut.value = (weigthOut.value * 2.20462).toFixed(0)
+            weigthlider.value = weigthOut.value
+
+
+            weigthChangeTo++;
+            break;
+        case 1:
+            heigthMultiplier = 1;
+
+            p.textContent = "in kg"
+
+            weigthlider.setAttribute("max", "200")
+            weigthlider.setAttribute("min", "1")
+
+            weigthOut.setAttribute("max", "200")
+            weigthOut.setAttribute("min", "1")
+
+            weigthOut.value = (weigthOut.value * 0.453592).toFixed(0)
+            weigthlider.value = weigthOut.value
+
+            weigthChangeTo = 0;
+            break;
     }
 });

@@ -26,8 +26,13 @@
 }
 
 .svg {
-    fill: rgb(49, 49, 49);
+    position: absolute;
+    left: 0px;
+    right: 0px;
     height: 100%;
+
+    fill: rgb(49, 49, 49);
+    height: calc(100% - 20px);
 }
 
 #femaleSvg:hover {

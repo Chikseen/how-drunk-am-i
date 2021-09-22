@@ -80,27 +80,34 @@
         </div>
         <div class="inputField" id="inputCombinedSlider">
             <div class="combinedField">
+                <label for="ageslider">Height</label>
                 <input type="range" min="1" max="300" value="170" id="ageslider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
-                <input class="output" id="ageSliderOut" type="number" placeholder="Your height" min="1"
+                <input class="output" id="ageSliderOut" type="number" value="170" min="1"
                     max="300"></input>
+                <p for="ageslider" id="heightChangeUnit">in cm</p>
             </div>
             <div class="combinedField">
+                <label for="weightslider">Weight in Kg</label>
                 <input type="range" min="1" max="200" value="60" id="weightslider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
-                <input class="output" id="weightSliderOut" type="number" placeholder="Your Weigth" min="1"
+                <input class="output" id="weightSliderOut" type="number" value="60" min="1"
                     max="200"></input>
+                <p for="weightslider" id="weightChangeUnit">in kg</p>
             </div>
             <div class="combinedField">
+                <label for="ageslider">Time need for consum</label>
                 <input type="range" min="0" max="12" value="3" id="timeSlider" class="slider" step="0.1"
                     oninput="this.nextElementSibling.value = this.value">
-                <input class="output" id="timeSliderOut" type="number" placeholder="Time Passed" min="1" max="12"
+                <input class="output" id="timeSliderOut" type="number" value="3" min="1" max="12"
                     step="0.1"></input>
+                <p for="weightslider" id="timeUnit">in h</p>
             </div>
         </div>
         <div class="infotext">
             <p>Here you can insert your height, weight and the time you started drinking</p>
-            <p>! If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
+            <p>You can change the unit by pressing on the name</p>
+            <p>If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
         </div>
 
 
