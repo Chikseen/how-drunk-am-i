@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/infoText.css">
     <link rel="stylesheet" type="text/css" href="/css/svgHandler.css">
+    <link rel="stylesheet" type="text/css" href="/css/browserfix.css">
 </head>
 
 <body>
@@ -43,16 +44,19 @@
         <div class="inputHeader">
             <label>Sex</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="sexIP">
             <button id="gsm" name="getsex" value="male" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/female.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/female.svg" width="100%"
+                    height="100%"></object>
             </button>
             <!--   <input type="button" id="gsm" name="getsex" value="male" class="btn">-->
             <button id="gsf" name="getsex" value="female" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/male.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/male.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="infotext">
@@ -65,7 +69,8 @@
         <div class="inputHeader">
             <label>Personal Data</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="inputCombinedSlider">
@@ -102,7 +107,8 @@
         <div class="inputHeader">
             <label>Category</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="inputCombinedFuel">
@@ -115,7 +121,8 @@
                 <p>Wine</p>
             </button>
             <button id="cocktail" name="cat" value="cocktail" class="btn">
-                <object class="catIcon" type="image/svg+xml" data="/icon/cocktail.svg" width="25%" height="100%"></object>
+                <object class="catIcon" type="image/svg+xml" data="/icon/cocktail.svg" width="25%"
+                    height="100%"></object>
                 <p>Cocktail</p>
             </button>
             <button id="spirit" name="cat" value="spirit" class="btn">
@@ -132,7 +139,8 @@
         <div class="inputHeader">
             <label>Drink</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="selectFuelIP">
@@ -152,7 +160,8 @@
         <div class="inputHeader">
             <label>Volume</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="inputCombinedVolume">
@@ -171,18 +180,18 @@
             <button id="250ml" name="volume" value="250ml" class="btn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/ml.svg" width="25%" height="100%"></object>
                 <p>250ml</p>
-            <button id="8cl" name="volume" value="8cl" class="btn">
-                <object class="catIcon" type="image/svg+xml" data="/icon/cl.svg" width="25%" height="100%"></object>
-                <p>8cl</p>
-            </button>
-            <button id="500ml" name="volume" value="500ml" class="btn">
-                <object class="catIcon" type="image/svg+xml" data="/icon/ml.svg" width="25%" height="100%"></object>
-                <p>500ml</p>
-            </button>
-            <input type="range" min="0" max="3000" value="1000" id="customVolumeSlider" class="slider" step="50"
-                oninput="this.nextElementSibling.value = this.value">
-            <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0"
-                max="3000" step="50"></input>
+                <button id="8cl" name="volume" value="8cl" class="btn">
+                    <object class="catIcon" type="image/svg+xml" data="/icon/cl.svg" width="25%" height="100%"></object>
+                    <p>8cl</p>
+                </button>
+                <button id="500ml" name="volume" value="500ml" class="btn">
+                    <object class="catIcon" type="image/svg+xml" data="/icon/ml.svg" width="25%" height="100%"></object>
+                    <p>500ml</p>
+                </button>
+                <input type="range" min="0" max="3000" value="1000" id="customVolumeSlider" class="slider" step="50"
+                    oninput="this.nextElementSibling.value = this.value">
+                <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0"
+                    max="3000" step="50"></input>
         </div>
         <div class="infotext">
             <p>Here you can chose the volume each drink had</p>
@@ -193,7 +202,8 @@
         <div class="inputHeader">
             <label>Add Drinks</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField">
@@ -211,7 +221,8 @@
         <div class="inputHeader">
             <label>Added Drinks</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="addedFuelIP">
@@ -229,7 +240,8 @@
         <div class="inputHeader">
             <label>Result</label>
             <button name="helpButton" value="NeedHelp" class="btn">
-                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                    height="100%"></object>
             </button>
         </div>
         <div class="inputField" id="resultIP">
@@ -255,7 +267,8 @@
             <div class="inputHeader">
                 <label>Name your new Fuel</label>
                 <button name="helpButton" value="NeedHelp" class="btn">
-                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                        height="100%"></object>
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewFuel">
@@ -271,24 +284,29 @@
             <div class="inputHeader">
                 <label>What is it</label>
                 <button name="helpButton" value="NeedHelp" class="btn">
-                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                        height="100%"></object>
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewCat">
-                <button id="newbeer" name="newCat" value="beer"  class="btn">
-                    <object class="catIcon" type="image/svg+xml" data="/icon/beer.svg" width="25%" height="100%"></object>
+                <button id="newbeer" name="newCat" value="beer" class="btn">
+                    <object class="catIcon" type="image/svg+xml" data="/icon/beer.svg" width="25%"
+                        height="100%"></object>
                     <p>Beer</p>
                 </button>
                 <button id="newwine" name="newcat" value="wine" class="btn">
-                    <object class="catIcon" type="image/svg+xml" data="/icon/wine.svg" width="25%" height="100%"></object>
+                    <object class="catIcon" type="image/svg+xml" data="/icon/wine.svg" width="25%"
+                        height="100%"></object>
                     <p>Wine</p>
                 </button>
                 <button id="newcocktail" name="cnewat" value="cocktail" class="btn">
-                    <object class="catIcon" type="image/svg+xml" data="/icon/cocktail.svg" width="25%" height="100%"></object>
+                    <object class="catIcon" type="image/svg+xml" data="/icon/cocktail.svg" width="25%"
+                        height="100%"></object>
                     <p>Cocktail</p>
                 </button>
                 <button id="newspirit" name="newcat" value="spirit" class="btn">
-                    <object class="catIcon" type="image/svg+xml" data="/icon/spirit.svg" width="25%" height="100%"></object>
+                    <object class="catIcon" type="image/svg+xml" data="/icon/spirit.svg" width="25%"
+                        height="100%"></object>
                     <p>Spirit</p>
                 </button>
             </div>
@@ -301,7 +319,8 @@
             <div class="inputHeader">
                 <label>Set vol%</label>
                 <button name="helpButton" value="NeedHelp" class="btn">
-                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%" height="100%"></object>
+                    <object class="objectloader" type="image/svg+xml" data="/icon/help.svg" width="100%"
+                        height="100%"></object>
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewMil">
@@ -327,12 +346,18 @@
 
         </div>
     </div>
-    </div>
 
     <script src="/js/buttonlogic.js"></script>
     <script src="/js/calc.js"></script>
     <script src="/js/pagehandler.js"></script>
     <script src="/js/parallax.js"></script>
+    [if IE]
+    <style>
+        .actual-form table {
+            width: 100%;
+        }
+    </style>
+    [endif]
 </body>
 
 </html>
