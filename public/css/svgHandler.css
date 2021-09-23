@@ -44,6 +44,7 @@
     fill: rgb(49, 49, 49);
     transition: 0.25s ease-out;
 }
+
 .btn:hover .catIcon {
     height: calc(100% + 10px);
 }

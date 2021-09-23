@@ -1,5 +1,3 @@
-<svg id="spiritSvg" class="svg" width="100%" height="70px" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg">
-<path fill="rgb(50, 50,50)" class="svgPath" d="M 1 25 L 9 25 A 1 1 0 0 0 9 23 L 7 23 Q 6 23 6 22 L 6 18 Q 6 16 7 15 Q 8 14 9 0 L 8 0 Q 7 15 5 15 
-Q 3 15 2 0 L 1 0 Q 2 14 3 15 Q 4 16 4 18 L 4 22 Q 4 23 3 23 L 1 23 A 1 1 0 0 0 1 25" />
-<path fill="rgb(130, 115, 60)" class="svgPath" d="M 2.19 2.997 Q 3 15 5 15 Q 7 15 7.785 3.009" />
+<svg id="spiritSvg" class="svg" width="100%" height="70px" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+<path class="svgPath" d="M 0 0 L 2 15 L 13 15 L 15 0 L 13 0 L 12 4 L 3 4 L 2 0 M 2 6 L 12 6 L 11 13 L 4 13 L 3 6" />
 </svg>
