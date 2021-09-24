@@ -28,8 +28,8 @@ function setMil(id) {
     console.log(data)
     console.log(data.length)
     for (let i = 0; i < data.length; i++) {
-        console.log("compare with")+
-        console.log(data[i].fuel)
+        console.log("compare with") +
+            console.log(data[i].fuel)
         console.log(id)
         if (data[i].fuel == id) {
             console.log(data[i].mil)
@@ -230,12 +230,20 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
     if (checkFuel() && checkVolume()) {
         console.log("!___!")
 
-    const btn = document.createElement('button');
-    const p = document.createElement('p');
-        
+        const btn = document.createElement('button');
+        const p = document.createElement('p');
+        const object = document.createElement("object")
+
+        object.setAttribute("class", "removeIcon")
+        object.setAttribute("type", "image/svg+xml")
+        object.setAttribute("data", "/icon/remove.svg")
+        object.setAttribute("height", "150%")
+
         btn.setAttribute("class", "btn");
         btn.setAttribute("name", "addedContent");
         btn.setAttribute("id", ("added" + drink));
+
+        btn.append(object);
 
         p.textContent = drink + " - " + currentVolume;
         btn.append(p);

@@ -40,12 +40,12 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
         document.getElementById("fuelInput").value = "";
         const data = { fuel, mil, newcat, occourenc };
         if (localStorage.getItem(fuel) === null) {
-            //     const response = await fetch("/sendrequest", packMyData(data))
-            //     const resp = await response.json();
+            const response = await fetch("/sendrequest", packMyData(data))
+            const resp = await response.json();
             newLocalItem(data);
             let trans = [data]
             loadcontent(trans);
-            //     console.log(resp)
+            console.log(resp)
             showContentadder();
         }
         else {
@@ -192,7 +192,14 @@ function getStorageHander() {
 
         btn.textContent = (" " + data[i].fuel);
 
-        let fuel = data[i].fuel
+        const object = document.createElement("object")
+
+        object.setAttribute("class", "removeIcon")
+        object.setAttribute("type", "image/svg+xml")
+        object.setAttribute("data", "/icon/remove.svg")
+        object.setAttribute("height", "150%")
+
+        btn.append(object);
 
         btn.addEventListener("click", function removeme() {
             console.log("data[i] " + (" " + this.id))
