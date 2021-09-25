@@ -224,7 +224,7 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
     if (checkVolume() == false) {
         const vip = document.getElementById("inputCombinedVolume")
         resetAnimation(vip)
-        vip .scrollIntoView();
+        vip.scrollIntoView();
         vip.style.animation = "error 2.5s ease-in-out alternate";
     }
 

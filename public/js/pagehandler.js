@@ -36,7 +36,7 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
     ceckMil(mil);
 
     console.log("mil is " + mil)
-    console.log("fuell is " +fuel)
+    console.log("fuell is " + fuel)
     console.log("newcat is " + newcat)
 
     if ((ceckFuel(fuel) && ceckCat()) && ceckMil(mil)) {
@@ -45,13 +45,14 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
         document.getElementById("fuelInput").value = "";
         const data = { fuel, mil, newcat, occourenc };
         if (localStorage.getItem(fuel) === null) {
-            const response = await fetch("/sendrequest", packMyData(data))
-            const resp = await response.json();
             newLocalItem(data);
             let trans = [data]
             loadcontent(trans);
-        console.log(resp)
             showContentadder();
+            const response = await fetch("/sendrequest", packMyData(data))
+            const resp = await response.json();
+            console.log(resp)
+
         }
         else {
             console.log("das object exestiert")
@@ -146,7 +147,7 @@ function loadcontent(data) {
         btn.append(p);
 
         document.getElementById("selectFuelIP").append(btn);
-        
+
         setMIlFeedback(btn, parseFloat(data[i].mil).toFixed(1))
 
         currentData.push(data[i])
@@ -170,13 +171,13 @@ function setIcon(data, btn) {
     if (data == "newbeer") {
         obj.setAttribute("data", "/icon/beer.svg");
     }
-    else if(data == "newwine") {
+    else if (data == "newwine") {
         obj.setAttribute("data", "/icon/wine.svg");
     }
-    else if(data == "newcocktail") {
+    else if (data == "newcocktail") {
         obj.setAttribute("data", "/icon/cocktail.svg");
     }
-    else if(data == "newspirit") {
+    else if (data == "newspirit") {
         obj.setAttribute("data", "/icon/spirit.svg");
     }
     btn.append(obj);
