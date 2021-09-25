@@ -1,6 +1,14 @@
+{"fuel":"Ale","mil":7,"newcat":"newbeer","occourenc":"","timestemp":1631793775997,"_id":"Ale"}
 {"fuel":"Campari","mil":25,"newcat":"newspirit","occourenc":"","timestemp":1631793774990,"_id":"Campari"}
+{"fuel":"Dark-Beer","mil":5.5,"newcat":"newbeer","occourenc":"","timestemp":1631793775987,"_id":"Dark-Beer"}
 {"fuel":"Dry-Champagne","mil":11,"newcat":"newwine","occourenc":"","timestemp":1631793774989,"_id":"Dry-Champagne"}
+{"fuel":"Long Island Iced Tea","mil":32,"newcat":"newcocktail","occourenc":"","timestemp":1631793785987,"_id":"Long Island Iced Tea"}
 {"fuel":"Mixed-beer","mil":2,"newcat":"newbeer","occourenc":"","timestemp":1631793774985,"_id":"Mixed-beer"}
+{"fuel":"Mojito","mil":28,"newcat":"newcocktail","occourenc":"","timestemp":1631793785187,"_id":"Mojito"}
 {"fuel":"Pilsner","mil":4.9,"newcat":"newbeer","occourenc":"","timestemp":1631793774987,"_id":"Pilsner"}
 {"fuel":"Rose-Champagne","mil":7.5,"newcat":"newwine","occourenc":"","timestemp":1631793774988,"_id":"Rose-Champagne"}
 {"fuel":"Rose-Wine","mil":11,"newcat":"newwine","occourenc":"","timestemp":1631793774986,"_id":"Rose-Wine"}
+{"fuel":"Rum","mil":51,"newcat":"newspirit","occourenc":"","timestemp":1631793785988,"_id":"Rum"}
+{"fuel":"Sex On The Beach","mil":25,"newcat":"newcocktail","occourenc":"","timestemp":1631793785197,"_id":"Sex On The Beach"}
+{"fuel":"Tequila Sunrise","mil":29,"newcat":"newcocktail","occourenc":"","timestemp":1631793785987,"_id":"Tequila Sunrise"}
+{"fuel":"Wodka","mil":40,"newcat":"newspirit","occourenc":"","timestemp":1631793785988,"_id":"Wodka"}
