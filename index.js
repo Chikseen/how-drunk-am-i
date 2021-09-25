@@ -15,90 +15,93 @@ publicDB.loadDatabase();
 
 
 let datamil = 0;
-function datasetavg(mil) {
+let globaldata;
+
+async function datasetavg(mil) {
 
     let temp = 0;
     for (let i = 0; i < mil.length; i++) {
         temp = temp + mil[i];
         console.log(temp)
     }
-    avgdata = (temp / mil.length);
-    console.log("avg: " + avgdata);
+    let avgdata = (temp / mil.length);
+    workwith(avgdata)
 }
 
 async function checkExisting(fuel, mil, response) {
     let avgdata = 0;
-    
-    proxyDB.find({ fuel:fuel }, (err, data) => {
+
+    proxyDB.find({ fuel: fuel }, (err, data) => {
         let arr = [];
-        console.log("find data")
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
             arr.push(data[i].mil)
         }
-        console.log(arr)
-        datasetavg(arr)
+        console.log(arr);
+        datasetavg(arr);
+        datasetavg(arr);
     });
+}
 
-
+function workwith(avgdata) {
     console.log("avgdata: " + avgdata)
-    console.log("data.mil: " + mil)
-    if (((avgdata + 3) > mil) && (((avgdata - 3) < mil))) {
+    console.log("data.mil: " + globaldata.mil)
+    if (((avgdata + 3) > globaldata.mil) && (((avgdata - 3) < globaldata.mil))) {
         console.log("datafit")
+
+
+        proxyDB.count({ fuel: globaldata.fuel }, (err, count) => {
+            console.log("Errors:  " + err);
+            console.log("Name exits " + count + " times");
+
+            //invite some fancy number to make a dynamic dependiencie+
+            if (count >= 5) {
+                globaldata._id = globaldata.fuel;
+                publicDB.insert(globaldata);
+                //response.json(getresp(900));
+                updateEntry(globaldata.fuel);
+            }
+            else {
+                // response.json(getresp(950));
+            }
+        });
     }
     else {
         console.log("data is to unrealistic")
     }
-    return avgdata;
 }
 
-app.post("/sendrequest", (request, response) => {
+async function datahandler(data) {
 
-    let data = request.body;
 
     data.timestemp = Date.now();
-
+    globaldata = data;
     console.log("Incoming Data: ");
-    console.log(data);
-
-    console.log("RETURNDE VAULE");
-    console.log(checkExisting(data.fuel, data.mil, response));
-
-    if ((data.fuel != "") && (data.mil != "")) {
-        if (data.fuel.length <= 2) {
-            response.json(getresp(911));
+    console.log(globaldata);
+    if ((globaldata.fuel != "") && (globaldata.mil != "")) {
+        if (globaldata.fuel.length <= 2) {
+            //response.json(getresp(911));
         }
-        else if (data.fuel.length >= 16) {
-            response.json(getresp(912));
+        else if (globaldata.fuel.length >= 16) {
+            //response.json(getresp(912));
         }
         else {
 
             console.log("Data is valid!");
-            proxyDB.insert(data);
+            proxyDB.insert(globaldata);
 
-            proxyDB.count({ fuel: data.fuel }, (err, count) => {
-                console.log("Errors:  " + err);
-                console.log("Name exits " + count + " times");
-
-                //invite some fancy number to make a dynamic dependiencie+
-                if (count >= 5) {
-                    data._id = data.fuel;
-                    publicDB.insert(data);
-                    response.json(getresp(900));
-                    updateEntry(data.fuel);
-                }
-                else {
-                    response.json(getresp(950));
-                }
-            });
         }
     }
     else {
         console.log("Data is invalid!");
         console.log("Empty Fields are not Allowed");
-        response.json(getresp(910));
+        // response.json(getresp(910));
     }
     dataWizard();
+    checkExisting(data.fuel, data.mil, response)
+}
+
+app.post("/sendrequest", (request, response) => {
+    datahandler(request.body);
 });
 
 app.get("/getList", (request, response) => {
@@ -145,7 +148,6 @@ function dataWizard() {
         getmycount(cache);
     });
 }
-
 
 function getmycount(data) {
     console.log(data)

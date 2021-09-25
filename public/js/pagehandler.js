@@ -45,12 +45,12 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
         document.getElementById("fuelInput").value = "";
         const data = { fuel, mil, newcat, occourenc };
         if (localStorage.getItem(fuel) === null) {
-        //    const response = await fetch("/sendrequest", packMyData(data))
-        //    const resp = await response.json();
+            const response = await fetch("/sendrequest", packMyData(data))
+            const resp = await response.json();
             newLocalItem(data);
             let trans = [data]
             loadcontent(trans);
-        //    console.log(resp)
+        console.log(resp)
             showContentadder();
         }
         else {
