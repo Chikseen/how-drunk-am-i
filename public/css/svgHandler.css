@@ -1,12 +1,7 @@
-
-.background {
-    position: absolute;
-    transition: 0.3s ease-out;
-}
-
 #bl1 {
     fill: rgb(102, 91, 80);
     filter: blur(15px);
+    
 }
 
 #bl2 {
@@ -23,6 +18,7 @@
 .objectloader {
     pointer-events: none;
 }
+
 .catIcon {
     position: absolute;
     pointer-events: none;
@@ -48,15 +44,9 @@
     height: 1000px;
 
     overflow: hidden;
-    
 }
 #svg-wrapper object {
     position: absolute;
-
-    top: 0px;
-    left: 0px;
-    width: 100%;
-
     transition: 0.2s ease-out;
 }
 
@@ -66,5 +56,4 @@
 
     top: 0px;
     right: 0px;
-
 }
