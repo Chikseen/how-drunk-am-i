@@ -13,6 +13,19 @@ const publicDB = new Datastore("database/publicDB.db");
 proxyDB.loadDatabase();
 publicDB.loadDatabase();
 
+let avgdata = 0;
+let datamil = 0;
+function datasetavg(mil) {
+
+    let temp = 0;
+    for (let i = 0; i < mil.length; i++) {
+        temp = temp + mil[i];
+        console.log(temp)
+    }
+    avgdata = (temp / mil.length);
+    console.log("avg: " + avgdata);
+}
+
 app.post("/sendrequest", (request, response) => {
 
     let data = request.body;
@@ -21,8 +34,27 @@ app.post("/sendrequest", (request, response) => {
 
     console.log("Incoming Data: ");
     console.log(data);
+    
+    proxyDB.find({ fuel: data.fuel }, (err, data) => {
+        let arr = [];
+        console.log("find data")
+        console.log(data)
+        for (let i = 0; i < data.length; i++) {
+            arr.push(data[i].mil)
+        }
+        console.log(arr)
+        datasetavg(arr)
+    });
 
 
+    console.log("avgdata: " + avgdata)
+    console.log("data.mil: " + data.mil)
+    if (((avgdata + 3) > data.mil) && (((avgdata - 3) < data.mil))) {
+        console.log("datafit")
+    }
+    else {
+        console.log("data is to unrealistic")
+    }
 
     if ((data.fuel != "") && (data.mil != "")) {
         if (data.fuel.length <= 2) {
@@ -80,7 +112,6 @@ function updateEntry(datafuel) {
             avg.push(item.mil)
             temp = (temp + parseInt(item.mil));
             console.log("temp: " + temp)
-
         }
         final = (temp / avg.length);
         console.log(final)
