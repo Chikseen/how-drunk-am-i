@@ -34,6 +34,10 @@ document.getElementById("sendRequestButton").addEventListener("click", async fun
     ceckCat();
     ceckMil(mil);
 
+    console.log("mil is " + mil)
+    console.log("fuell is " +fuel)
+    console.log("newcat is " + newcat)
+
     if ((ceckFuel(fuel) && ceckCat()) && ceckMil(mil)) {
 
 
@@ -61,6 +65,7 @@ function ceckFuel(fuel) {
     else {
         let el = document.getElementById("inputCombinedNewFuel");
         resetAnimation(el)
+        el.scrollIntoView();
         el.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -73,6 +78,7 @@ function ceckCat() {
     else {
         let el = document.getElementById("inputCombinedNewCat");
         resetAnimation(el)
+        el.scrollIntoView();
         el.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -85,6 +91,7 @@ function ceckMil(mil) {
         console.log("select a mil")
         let el = document.getElementById("inputCombinedNewMil");
         resetAnimation(document.getElementById("inputCombinedNewMil"))
+        el.scrollIntoView();
         el.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }

@@ -110,6 +110,7 @@ function checkSex() {
     else {
         const sip = document.getElementById("sexIP")
         resetAnimation(sip)
+        sip.scrollIntoView();
         sip.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -190,6 +191,7 @@ function checkFuel() {
     else {
         const sfip = document.getElementById("selectFuelIP")
         resetAnimation(sfip)
+        sfip.scrollIntoView();
         sfip.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -203,6 +205,7 @@ function checkAdded() {
     else {
         const afip = document.getElementById("addedFuelIP")
         resetAnimation(afip)
+        afip.scrollIntoView();
         afip.style.animation = "error 2.5s ease-in-out alternate";
         return false;
     }
@@ -221,6 +224,7 @@ document.getElementById("addBtn").addEventListener("click", function addFuel() {
     if (checkVolume() == false) {
         const vip = document.getElementById("inputCombinedVolume")
         resetAnimation(vip)
+        vip .scrollIntoView();
         vip.style.animation = "error 2.5s ease-in-out alternate";
     }
 
