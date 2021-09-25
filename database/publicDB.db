@@ -4,3 +4,4 @@
 {"fuel":"Pilsner","mil":4.9,"newcat":"newbeer","occourenc":"","timestemp":1631793774987,"_id":"Pilsner"}
 {"fuel":"Rose-Champagne","mil":7.5,"newcat":"newwine","occourenc":"","timestemp":1631793774988,"_id":"Rose-Champagne"}
 {"fuel":"Rose-Wine","mil":11,"newcat":"newwine","occourenc":"","timestemp":1631793774986,"_id":"Rose-Wine"}
+{"fuel":"test4","mil":21.333333333333332,"newcat":"newcocktail","occourenc":"","timestemp":1632558992874,"_id":"test4"}

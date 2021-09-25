@@ -13,7 +13,7 @@ const publicDB = new Datastore("database/publicDB.db");
 proxyDB.loadDatabase();
 publicDB.loadDatabase();
 
-let avgdata = 0;
+
 let datamil = 0;
 function datasetavg(mil) {
 
@@ -26,16 +26,10 @@ function datasetavg(mil) {
     console.log("avg: " + avgdata);
 }
 
-app.post("/sendrequest", (request, response) => {
-
-    let data = request.body;
-
-    data.timestemp = Date.now();
-
-    console.log("Incoming Data: ");
-    console.log(data);
+async function checkExisting(fuel, mil, response) {
+    let avgdata = 0;
     
-    proxyDB.find({ fuel: data.fuel }, (err, data) => {
+    proxyDB.find({ fuel:fuel }, (err, data) => {
         let arr = [];
         console.log("find data")
         console.log(data)
@@ -48,13 +42,27 @@ app.post("/sendrequest", (request, response) => {
 
 
     console.log("avgdata: " + avgdata)
-    console.log("data.mil: " + data.mil)
-    if (((avgdata + 3) > data.mil) && (((avgdata - 3) < data.mil))) {
+    console.log("data.mil: " + mil)
+    if (((avgdata + 3) > mil) && (((avgdata - 3) < mil))) {
         console.log("datafit")
     }
     else {
         console.log("data is to unrealistic")
     }
+    return avgdata;
+}
+
+app.post("/sendrequest", (request, response) => {
+
+    let data = request.body;
+
+    data.timestemp = Date.now();
+
+    console.log("Incoming Data: ");
+    console.log(data);
+
+    console.log("RETURNDE VAULE");
+    console.log(checkExisting(data.fuel, data.mil, response));
 
     if ((data.fuel != "") && (data.mil != "")) {
         if (data.fuel.length <= 2) {
