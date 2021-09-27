@@ -87,21 +87,13 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
                 timePassed = (timePassed + 0.1);
             }
             document.getElementById("resultinfo").textContent = "You will be sober after " + timePassed.toFixed(1) + " hours";
-            drawGraph(result, tpbefore, timePassed)
+            document.getElementById("resulttext_result").textContent = result.toFixed(2);
+            document.getElementById("resulttext_tf").textContent = timePassed.toFixed(1);
+            document.getElementById("resulttext_tp").textContent = tpbefore.toFixed(1);
         }
         document.getElementById("resultIP").style.display = "flex"
     }
 });
-
-function drawGraph(result, tpbefore, timePassed) {
-    let drawboard = document.getElementById("resultGraph");
-
-
-    /*
-    ctx.font = "30px Arial"
-    ctx.fillText("0h", 180, 10)*/
-}
-
 
 function checkSex() {
 

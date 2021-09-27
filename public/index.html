@@ -52,7 +52,7 @@
                     height="100%"></object>
             </button>
         </div>
-       
+
 
 
         <!--MAINCONTENT  PERSONAL DATA-->
@@ -91,7 +91,7 @@
                 <p for="weightslider" id="timeUnit">in h</p>
             </div>
         </div>
-        
+
 
 
         <!--MAINCONTENT  CATEGORY-->
@@ -199,7 +199,8 @@
         </div>
         <div class="inputField">
             <div class="infotext">
-                <p>If your slected everything so notthing is blinking, you can press this button to add a drink to the list
+                <p>If your slected everything so notthing is blinking, you can press this button to add a drink to the
+                    list
                 </p>
             </div>
             <button value="add" id="addBtn" class="btn" name="onewaybtn">
@@ -219,7 +220,8 @@
         <div class="inputField" id="addedFuelIP">
             <div class="infotext">
                 <p>Here you can see your added Drinks</p>
-                <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red
+                <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking
+                    red
                     your Drink will be added here</p>
                 <p>! To remove a Drink just press on it</p>
             </div>
@@ -239,10 +241,17 @@
             <p id="result"></p>
             <p id="resultinfo"></p>
             <div id="resultGraph">
-                <svg id="graph" width="100%" height="200px" viewBox="0 0 15 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path stroke="blue"  stroke-width="1" fill-opacity="0"
-                        d="M 1 1 L 1 9 L 14 9" />
+                <svg id="graph" width="100%" height="100px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none">
+                    <path stroke="black" stroke-width="1" fill-opacity="0" d="M 5 5 L 5 95 L 95 95" />
+                    <path stroke="black" stroke-width="1" fill-opacity="0" d="M 5 95 L 25 20 Q 30 8 35 20 
+                                                                            Q 53 68 95 95" />
                 </svg>
+                <p class="resulttext" id="resulttext_0">0</p>
+                <p class="resulttext" id="resulttext_peak">peak</p>
+                <p class="resulttext" id="resulttext_result"></p>
+                <p class="resulttext" id="resulttext_tf"></p>
+                <p class="resulttext" id="resulttext_tp"></p>
             </div>
         </div>
         <div class="inputField">
@@ -328,7 +337,7 @@
                 <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1"
                     max="99"></input>
             </div>
-        
+
 
             <div class="inputField">
                 <input type="button" value="Close" id="closeNewContentButton" class="btn" name="onewaybtn">

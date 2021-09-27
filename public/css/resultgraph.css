@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: 250px;
-    background-color:hotpink;
+    background-color: #00000000;
 }
 
 #graph {
@@ -11,4 +11,34 @@
     left: 0x;
     width: 100%;
     height: 100%;
+}
+
+.resulttext {
+    position: absolute;
+    width: 25px;
+    height: 10px;
+}
+
+#resulttext_0{
+    top: 225px;
+    left: 10px;
+}
+
+#resulttext_peak {
+    top: -30px;
+    left: 10px}
+
+#resulttext_result {
+    top: 0px;
+    left: 24%;
+}
+
+#resulttext_tp {
+    top: 225px;
+    left: 24%;
+}
+
+#resulttext_tf {
+    top: 225px;
+    left: calc(100% - 25px);
 }
