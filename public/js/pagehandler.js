@@ -22,6 +22,8 @@ document.getElementById("closeNewContentButton").addEventListener("click", funct
 window.addEventListener('load', () => {
     getStorageHander();
     getList();
+    console.log("HELLOO:______________________________________________")
+    document.querySelector(".loader").classList.toggle("disable")
 });
 
 document.getElementById("sendRequestButton").addEventListener("click", async function sendrequest() {
