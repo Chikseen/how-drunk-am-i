@@ -76,20 +76,31 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
 
         if (result <= 0) {
             result = 0;
-            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%°";
+            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(2) + "%°";
             document.getElementById("resultinfo").textContent = "you are allrady clean";
+            
         }
         else {
-            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(1) + "%";
+            document.getElementById("result").textContent = "Your peak value after " + timePassed + "h is " + result.toFixed(2) + "%";
+            let tpbefore = timePassed;
             while (parseFloat((finalGrammOfAlc / (finalweight * reduction) * 0.83) - (0.15 * timePassed)) > 0) {
                 timePassed = (timePassed + 0.1);
             }
             document.getElementById("resultinfo").textContent = "You will be sober after " + timePassed.toFixed(1) + " hours";
+            drawGraph(result, tpbefore, timePassed)
         }
         document.getElementById("resultIP").style.display = "flex"
     }
 });
 
+function drawGraph(result, tpbefore, timePassed) {
+    let drawboard = document.getElementById("resultGraph");
+
+
+    /*
+    ctx.font = "30px Arial"
+    ctx.fillText("0h", 180, 10)*/
+}
 
 
 function checkSex() {

@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Full I AM</title>
+    <title>drunc Drunkenness Realisation and User Needablitiy Calculator</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/infoText.css">
     <link rel="stylesheet" type="text/css" href="/css/svgHandler.css">
     <link rel="stylesheet" type="text/css" href="/css/browserfix.css">
     <link rel="stylesheet" type="text/css" href="/css/slider.css">
+    <link rel="stylesheet" type="text/css" href="/css/resultgraph.css">
 </head>
 
 <body>
@@ -19,7 +20,8 @@
         <object class="objectloader" id="bl2" type="image/svg+xml" data="/icon/background2.svg"></object>
     </div>
     <div class="maincontent" id="titel">
-        <label>How Drunk Am I</label>
+        <label>drunc</label>
+        <p>Drunkenness Realisation and User Needablitiy Calculator</p>
     </div>
 
 
@@ -36,6 +38,10 @@
             </button>
         </div>
         <div class="inputField" id="sexIP">
+            <div class="infotext">
+                <p>Here you can chose your biological sex</p>
+                <p>Left: Female - Right: Male</p>
+            </div>
             <button id="gsm" name="getsex" value="male" class="btn">
                 <object id="gsmO" class="objectloader" type="image/svg+xml" data="/icon/female.svg" width="100%"
                     height="100%"></object>
@@ -46,10 +52,7 @@
                     height="100%"></object>
             </button>
         </div>
-        <div class="infotext">
-            <p>Here you can chose your biological sex</p>
-            <p>Left: Female - Right: Male</p>
-        </div>
+       
 
 
         <!--MAINCONTENT  PERSONAL DATA-->
@@ -61,6 +64,11 @@
             </button>
         </div>
         <div class="inputField" id="inputCombinedSlider">
+            <div class="infotext">
+                <p>Here you can insert your height, weight and the time you started drinking</p>
+                <p>You can change the unit by pressing on the name</p>
+                <p>If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
+            </div>
             <div class="combinedField">
                 <label for="ageslider">Height</label>
                 <input type="range" min="1" max="300" value="170" id="ageslider" class="slider"
@@ -83,11 +91,7 @@
                 <p for="weightslider" id="timeUnit">in h</p>
             </div>
         </div>
-        <div class="infotext">
-            <p>Here you can insert your height, weight and the time you started drinking</p>
-            <p>You can change the unit by pressing on the name</p>
-            <p>If you started drinking at 8 p.m till 10 p.m. you chose 2h</p>
-        </div>
+        
 
 
         <!--MAINCONTENT  CATEGORY-->
@@ -99,6 +103,9 @@
             </button>
         </div>
         <div class="inputField" id="inputCombinedFuel">
+            <div class="infotext">
+                <p>Here you can chose the category of your drink</p>
+            </div>
             <button id="beer" name="cat" class="btn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/beer.svg" width="25%" height="100%"></object>
                 <p>Beer</p>
@@ -117,9 +124,6 @@
                 <p>Spirit</p>
             </button>
         </div>
-        <div class="infotext">
-            <p>Here you can chose the category of your drink</p>
-        </div>
 
 
         <!--MAINCONTENT  DRINK-->
@@ -131,15 +135,15 @@
             </button>
         </div>
         <div class="inputField" id="selectFuelIP">
+            <div class="infotext">
+                <p>Here you can chose the drink</p>
+                <p>! Press "Custom" to submit your own drink to the database and work with it</p>
+            </div>
             <button id="customContentButton" class="btn" name="onewaybtn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/custom.svg" width="25%" height="100%"></object>
                 <p>Create Own</p>
             </button>
             <!--Content get added via JS-->
-        </div>
-        <div class="infotext">
-            <p>Here you can chose the drink</p>
-            <p>! Press "Custom" to submit your own drink to the database and work with it</p>
         </div>
 
 
@@ -152,6 +156,10 @@
             </button>
         </div>
         <div class="inputField" id="inputCombinedVolume">
+            <div class="infotext">
+                <p>Here you can chose the volume each drink had</p>
+                <p>You can either chose a fixed volume or use the slider for a custom one</p>
+            </div>
             <button id="1cl" name="volume" value="1cl" class="btn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/cl.svg" width="25%" height="100%"></object>
                 <p>1cl</p>
@@ -180,10 +188,6 @@
                 <input class="output" id="customVolumeSliderOut" type="number" placeholder="Custom Volume" min="0"
                     max="3000" step="50"></input>
         </div>
-        <div class="infotext">
-            <p>Here you can chose the volume each drink had</p>
-            <p>You can either chose a fixed volume or use the slider for a custom one</p>
-        </div>
 
         <!--MAINCONTENT  ADD DRINK-->
         <div class="inputHeader">
@@ -194,13 +198,13 @@
             </button>
         </div>
         <div class="inputField">
+            <div class="infotext">
+                <p>If your slected everything so notthing is blinking, you can press this button to add a drink to the list
+                </p>
+            </div>
             <button value="add" id="addBtn" class="btn" name="onewaybtn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/add.svg" width="100%" height="100%"></object>
             </button>
-        </div>
-        <div class="infotext">
-            <p>If your slected everything so notthing is blinking, you can press this button to add a drink to the list
-            </p>
         </div>
 
 
@@ -213,13 +217,13 @@
             </button>
         </div>
         <div class="inputField" id="addedFuelIP">
+            <div class="infotext">
+                <p>Here you can see your added Drinks</p>
+                <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red
+                    your Drink will be added here</p>
+                <p>! To remove a Drink just press on it</p>
+            </div>
             <!--Content get added via JS-->
-        </div>
-        <div class="infotext">
-            <p>Here you can see your added Drinks</p>
-            <p>! To add some Drinks just click on a Drink above and chose your volume and if notthing is blinking red
-                your Drink will be added here</p>
-            <p>! To remove a Drink just press on it</p>
         </div>
 
 
@@ -234,16 +238,21 @@
         <div class="inputField" id="resultIP">
             <p id="result"></p>
             <p id="resultinfo"></p>
+            <div id="resultGraph">
+                <svg id="graph" width="100%" height="200px" viewBox="0 0 15 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path stroke="blue"  stroke-width="1" fill-opacity="0"
+                        d="M 1 1 L 1 9 L 14 9" />
+                </svg>
+            </div>
         </div>
         <div class="inputField">
+            <div class="infotext">
+                <p>Press calc to see your results, if something still blinks red, chose an option</p>
+            </div>
             <button value="calc" id="clacBtn" class="btn" name="onewaybtn">
                 <object class="catIcon" type="image/svg+xml" data="/icon/calc.svg" width="100%" height="100%"></object>
             </button>
         </div>
-        <div class="infotext">
-            <p>Press calc to see your results, if something still blinks red, chose an option</p>
-        </div>
-
 
 
         <!--NEWCONTENT-->
@@ -259,11 +268,11 @@
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewFuel">
+                <div class="infotext">
+                    <p>To successfully submit a Drink it obviously need a name</p>
+                </div>
                 <input type="text" value="" placeholder="Name your new Fuel" id="fuelInput" class="btn"
                     name="onewaybtn">
-            </div>
-            <div class="infotext">
-                <p>To successfully submit a Drink it obviously need a name</p>
             </div>
 
 
@@ -276,6 +285,9 @@
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewCat">
+                <div class="infotext">
+                    <p>Chose the category your Drink is</p>
+                </div>
                 <button id="newbeer" name="setNewCat" value="beer" class="btn">
                     <object class="catIcon" type="image/svg+xml" data="/icon/beer.svg" width="25%"
                         height="100%"></object>
@@ -297,9 +309,6 @@
                     <p>Spirit</p>
                 </button>
             </div>
-            <div class="infotext">
-                <p>Chose the category your Drink is</p>
-            </div>
 
 
             <!--NEWCONTENT  MIL-->
@@ -311,18 +320,19 @@
                 </button>
             </div>
             <div class="inputField" id="inputCombinedNewMil">
+                <div class="infotext">
+                    <p>and finaly chose the Pro-Mil % value your drink has</p>
+                </div>
                 <input type="range" min="0" max="99" value="0" id="newMilSlider" class="slider"
                     oninput="this.nextElementSibling.value = this.value">
                 <input class="output" id="newMilSliderOut" type="number" placeholder="Alcohol Conzentraition" min="1"
                     max="99"></input>
             </div>
-            <div class="infotext">
-                <p>and finaly chose the Pro-Mil % value your drink has</p>
-            </div>
+        
 
             <div class="inputField">
                 <input type="button" value="Close" id="closeNewContentButton" class="btn" name="onewaybtn">
-                <input type="button" value="Edit Submited Data" id="clearDataButton" class="btn" name="onewaybtn">
+                <input type="button" value="Delete Submited Data" id="clearDataButton" class="btn" name="onewaybtn">
             </div>
             <div class="inputField" id="editSubmitedIP">
                 <!--Content get added via JS-->

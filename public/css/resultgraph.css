@@ -1,0 +1,14 @@
+#resultGraph {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color:hotpink;
+}
+
+#graph {
+    position: absolute;
+    top: 0px;
+    left: 0x;
+    width: 100%;
+    height: 100%;
+}

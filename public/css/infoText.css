@@ -1,16 +1,21 @@
 .infotext {
+    position: absolute;
     width: calc(100% - 20px);
     height: inherit;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
     
-    background-color: rgba(254, 255, 195, 0.5);
-    border-radius: 10px;
+    background-color: rgba(73, 78, 57, 0.75);
+    border-radius: 10px 10px 0px 0px;
+    backdrop-filter: blur(5px);
+    border-style: solid;
+    border: 5px;
+    border-color: rgb(206, 35, 35);
 
-    font-size: 0.75rem;
+    padding: 10px;
 
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size: 0.9rem;
 
     transform: rotateY(90deg);
     transition: all 0.25s ease-out;
