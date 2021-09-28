@@ -2,9 +2,6 @@
     background: linear-gradient(60deg, rgb(99, 97, 97) 0%, rgb(53, 51, 51) 100%);
     position: fixed;
 
-    display: flex;
-    justify-content: center;
-
     top: 0px;
     left: 0px;
     width: 100%;
@@ -14,19 +11,36 @@
 
     transition: 1.5s ease-out;
 }
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 100;
+
+    padding-top: 50px;
+}
+
 .loader.disable {
     position: absolute;
+    height: 0;
+    animation-play-state: paused;
+}
 
-    opacity: 0;
+.loader.disable svg{
+    position: absolute;
 
-    top: 0px;
-    height: 0px;
+    top: 0;
+    left: 0;
+    height: 100px;
 }
 
 .loader {
     stroke-dasharray: 100;
-    animation: dashdraw 3s linear infinite;
+    animation: dashdraw 1s ease-in-out infinite;
  }
+
  @keyframes dashdraw {
     to {stroke-dashoffset: 200}
  }

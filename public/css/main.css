@@ -34,7 +34,7 @@ html, body {
 }
 #titel {
     user-select: none;
-    padding-top: 100px;
+    padding-top: 200px;
 
     background-color: rgba(182, 171, 157, 0);
     box-shadow: 0px 0px 0px 0px rgba(124, 114, 98, 0);

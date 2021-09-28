@@ -19,12 +19,14 @@ document.getElementById("customContentButton").addEventListener("click", functio
 document.getElementById("closeNewContentButton").addEventListener("click", function sendrequest() {
     showContentadder()
 });
-window.addEventListener('load', () => {
-    getStorageHander();
-    getList();
-    console.log("HELLOO:______________________________________________")
-    document.querySelector(".loader").classList.toggle("disable")
-});
+document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        getStorageHander();
+        getList();
+        document.querySelector(".loader").classList.toggle("disable")
+        document.querySelector(".loader").style.animation = "dashdraw 1.5s ease-in-out forwards";
+    }
+};
 
 document.getElementById("sendRequestButton").addEventListener("click", async function sendrequest() {
 
