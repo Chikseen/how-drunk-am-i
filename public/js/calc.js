@@ -87,9 +87,9 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
                 timePassed = (timePassed + 0.1);
             }
             document.getElementById("resultinfo").textContent = "You will be sober after " + timePassed.toFixed(1) + " hours";
-            document.getElementById("resulttext_result").textContent = result.toFixed(2);
-            document.getElementById("resulttext_tf").textContent = timePassed.toFixed(1);
-            document.getElementById("resulttext_tp").textContent = tpbefore.toFixed(1);
+            document.getElementById("resulttext_result").textContent = result.toFixed(2) + "%°";
+            document.getElementById("resulttext_tf").textContent = timePassed.toFixed(1) + "h";
+            document.getElementById("resulttext_tp").textContent = tpbefore.toFixed(1) + "h";
         }
         document.getElementById("resultIP").style.display = "flex"
     }
@@ -185,7 +185,6 @@ function checkVolume() {
     }
 }
 
-
 function checkFuel() {
 
     if (drink != "") {
@@ -213,8 +212,6 @@ function checkAdded() {
         return false;
     }
 }
-
-
 
 function resetAnimation(el) {
     el.style.animation = 'none';

@@ -14,7 +14,7 @@
 
     transition: 1.5s ease-out;
 }
-.loader.disablel {
+.loader.disable {
     position: absolute;
 
     opacity: 0;
