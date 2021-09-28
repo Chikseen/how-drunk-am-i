@@ -46,9 +46,10 @@ function setVolume(id) {
 document.getElementById("clacBtn").addEventListener("click", function calcResult() {
 
     finalage = parseFloat(document.getElementById('ageSliderOut').value) * parseFloat(heigthMultiplier);
-    finalweight = parseFloat(document.getElementById('weightSliderOut').value);
+    finalweight = parseFloat(document.getElementById('weightSliderOut').value)  / parseFloat(weigthMultiplier);
     timePassed = parseFloat(document.getElementById('timeSliderOut').value);
 
+    console.log("-")
     console.log("heigth: " + finalage);
     console.log("sex: " + sex);
     console.log("weight: " + finalweight);
@@ -64,7 +65,6 @@ document.getElementById("clacBtn").addEventListener("click", function calcResult
 
     if ((checkSex() && checkFuel()) && checkVolume()) {
 
-        console.log("-")
         console.log("finalGrammOfAlc: " + finalGrammOfAlc)
         console.log("finalweight: " + finalweight)
         console.log("r: " + reduction)
@@ -355,9 +355,10 @@ document.getElementById("weightChangeUnit").addEventListener("click", function s
 
 
             weigthChangeTo++;
+            console.log("weigthChangeTo" + weigthMultiplier)
             break;
         case 1:
-            heigthMultiplier = 1;
+            weigthMultiplier = 1;
 
             p.textContent = "in kg"
 
@@ -371,6 +372,7 @@ document.getElementById("weightChangeUnit").addEventListener("click", function s
             weigthlider.value = weigthOut.value
 
             weigthChangeTo = 0;
+            console.log("weigthChangeTo" + weigthMultiplier)
             break;
     }
 });

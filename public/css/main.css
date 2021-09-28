@@ -271,13 +271,13 @@ html, body {
         background-color: rgb(158, 67, 82);
     }
     50%{
-        background-color: rgb(245, 239, 240);
+        background-color: rgba(109, 109, 109, 0.8);
     }
     75%{
         background-color: rgb(158, 67, 82);
     }
     100%{
-        background-color: rgb(245, 239, 240);
+        background-color: rgba(109, 109, 109, 0.8);
     } 
 }
 

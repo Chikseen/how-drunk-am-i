@@ -6,12 +6,9 @@
     left: 0px;
     z-index: 10;
     
-    background-color: rgba(73, 78, 57, 0.75);
+    background-color: rgba(45, 46, 41, 0.75);
     border-radius: 10px 10px 0px 0px;
     backdrop-filter: blur(5px);
-    border-style: solid;
-    border: 5px;
-    border-color: rgb(206, 35, 35);
 
     padding: 10px;
 
