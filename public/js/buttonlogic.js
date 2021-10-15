@@ -55,3 +55,13 @@ function toggleLogic(btnname, btnid) {
         document.getElementById(btnid).classList.toggle("isCheckedVolume");
     }
 }
+
+let vueclick = 0;
+document.getElementById("titel").addEventListener("click", function vuetest() {
+    console.log("titel is clicked")
+    vueclick++;
+    if (vueclick > 4) {
+        console.log("change")
+        window.location.href = "../VUETEST/vindex.html"
+    }
+});

@@ -3,6 +3,7 @@ html, body {
     scroll-behavior: smooth;
     margin: 0px;
     font-family: sans-serif;
+    user-select: none;
 }
 .maincontent {
     user-select: none;
