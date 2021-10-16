@@ -11,19 +11,26 @@
 
 <body>
 
-    <div id="itemadder">
-        <p>{{ message }}</p>
-        <button v-on:click="showItemAdder">Add Item</button>
-        <div v-if="seen">
-            <input type="text" name="newItemName" id="newItemName">
+    <div class="mainpage-content">
+        <h1>Shopping List</h1>
+    </div>
+    <div class="mainpage-content" id="itemadder">
+        <div class="mainpage-content_additem">
+            <p>{{ message }}</p>
+            <button v-on:click="showItemAdder">Add Item</button>
+            <div v-if="seen">
+                <input type="text" name="newItemName" id="newItemName">
 
-            <button v-on:click="saveItem">Add</button>
+                <button v-on:click="saveItem">Add</button>
+            </div>
         </div>
     </div>
 
-    <div id="showItems">
-        <p v-for="item in items">
-            {{ item.text }} </p>
+    <div class="mainpage-content" id="showItems">
+        <div class="mainpage-content_showitem">
+            <p v-for="item in items">
+                {{ item.text }} </p>
+        </div>
     </div>
 
     <script>
@@ -49,8 +56,9 @@
                     }
                 },
                 saveItem: function () {
-                    console.log("Name" + document.getElementById("newItemName").value)
-                    localStorage.setItem(document.getElementById("newItemName").value, "e.g. param_1")
+                    let input = document.getElementById("newItemName").value;
+                    sessionStorage.setItem(input, "e.g. param_1" + input)
+                    showItems.items.push({ text: input + " - " + "e.g. param_1" + input })
                 }
             }
         })
@@ -58,21 +66,44 @@
         let showItems = new Vue({
             el: "#showItems",
             data: {
-                items: [
-                    { text: 'Learn JavaScript' },
-                    { text: 'Learn Vue' },
-                    { text: 'Build something awesome' }
-                ]
+                items: [ /*get content from sessionstorage*/]
             },
         })
 
-        for (let i = 0; i < 10; i++) {
-            showItems.items.push({ text: i })
+        displaydata();
+
+        function displaydata() {
+
+            let data = [];
+            let keys = Object.keys(sessionStorage)
+
+           for (let i = 0; i < keys.length; i++) {
+                data.push(sessionStorage.getItem(keys[i]));
+                showItems.items.push({ text: keys[i] + " - " + data[i] })
+            }
         }
 
     </script>
 
     <style>
+        .mainpage-content {
+            background-color: beige;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            width: 100%;
+            text-align: center;
+
+            padding: 2rem 0px 2rem 0px;
+            margin: 2rem;
+        }
+
+        .mainpage-content_additem,
+        .mainpage-content_showitem {
+            flex-direction: column;
+        }
+
         #clickme {
             width: "250px";
             height: "50px";
