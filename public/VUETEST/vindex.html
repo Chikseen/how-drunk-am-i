@@ -7,9 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VUE</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 
 <body>
+
+    <div id="app">
+        <h1>Chose the Page</h1>
+        <p>
+            <!-- use router-link component for navigation. -->
+            <!-- specify the link by passing the `to` prop. -->
+            <!-- <router-link> will be rendered as an `<a>` tag by default -->
+            <router-link to="/foo">Go to Foo</router-link>
+            <router-link to="/bar">Go to Bar</router-link>
+            <router-link to="/test">show sth</router-link>
+        </p>
+        <!-- route outlet -->
+        <router-view></router-view>
+    </div>
+    <script src="helper.js"></script>
 
     <div class="mainpage-content">
         <h1>Shopping List</h1>
@@ -32,6 +49,9 @@
                 {{ item.text }} </p>
         </div>
     </div>
+
+    <!--CHANGE TO-->
+    
 
     <script>
         let showItemAdder = new Vue({
@@ -77,7 +97,7 @@
             let data = [];
             let keys = Object.keys(sessionStorage)
 
-           for (let i = 0; i < keys.length; i++) {
+            for (let i = 0; i < keys.length; i++) {
                 data.push(sessionStorage.getItem(keys[i]));
                 showItems.items.push({ text: keys[i] + " - " + data[i] })
             }

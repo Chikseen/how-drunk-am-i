@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "nedb": "^1.8.0",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-routers": "^1.0.9"
   }
 }
